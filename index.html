@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALFA GYM — Карасуу</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">ALFA <span>GYM</span></a>
+<nav><a href="#about" data-i="nav1"></a><a href="#sports" data-i="nav4"></a><a href="#shop" data-i="nav2"></a><a href="#contact" data-i="nav3"></a></nav>
+<a class="btn ghost sm admin-link" href="#admin" data-i="manage"></a>
+<div class="lang" role="group" aria-label="Language"><button id="b-ru" type="button">RU</button><button id="b-ky" type="button">KY</button></div>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<h1>ALFA</h1>
+<div class="bar" aria-hidden="true"><i class="p1"></i><i class="p2"></i><i class="rod"></i><i class="p2"></i><i class="p1"></i></div>
+<h1>GYM</h1>
+<div class="tag" data-i="tag"></div>
+<p class="lead" data-i="lead"></p>
+<div class="btns"><a class="btn" href="#contact" data-i="cta1"></a><a class="btn ghost" href="#shop" data-i="cta2"></a></div>
+</div>
+
+<section id="about" class="alt"><div class="wrap">
+<h2 data-i="aboutT"></h2>
+<p class="sub" data-i="aboutS"></p>
+<div class="grid">
+<div class="card"><h3 data-i="c1t"></h3><p data-i="c1p"></p></div>
+<div class="card"><h3 data-i="c2t"></h3><p data-i="c2p"></p></div>
+<div class="card"><h3 data-i="c3t"></h3><p data-i="c3p"></p></div>
+</div></div></section>
+
+<section id="sports"><div class="wrap">
+<h2 data-i="dirT"></h2>
+<p class="sub" data-i="dirS"></p>
+<div class="grid">
+<a class="card direction-card" href="#boxing"><img class="direction-card-image" src="Kiryan%20Varo%20Adislav.jpg" alt=""><h3 data-i="d1t"></h3><p data-i="d1p"></p><span class="direction-more" data-i="dirMore"></span></a>
+<a class="card direction-card" href="#wrestling"><img class="direction-card-image" src="pexels-celio-junior-106557696-38178268.jpg" alt=""><h3 data-i="d2t"></h3><p data-i="d2p"></p><span class="direction-more" data-i="dirMore"></span></a>
+<a class="card direction-card" href="#fitness"><img class="direction-card-image" src="Без%20названия%20(1).jpg" alt=""><h3 data-i="d3t"></h3><p data-i="d3p"></p><span class="direction-more" data-i="dirMore"></span></a>
+</div></div></section>
+
+<section id="store" class="alt"><div class="wrap">
+<h2 data-i="storeT"></h2>
+<p class="sub" data-i="storeS"></p>
+<a class="btn" href="#shop" data-i="storeB"></a>
+</div></section>
+
+<section id="contact"><div class="wrap info">
+<div>
+<h2 data-i="contT"></h2>
+<p class="sub" data-i="contS"></p>
+<div class="rows">
+<div><span>📍</span><p style="margin:0"><b data-i="addrL"></b><span data-i="addr"></span></p></div>
+<div><span>☎️</span><p style="margin:0"><b data-i="phoneL"></b><a href="tel:+996708440092">+996 (708) 440-092</a></p></div>
+<div><span>💬</span><p style="margin:0"><b>WhatsApp</b><a href="https://wa.me/996990909511" target="_blank" rel="noopener">+996 990 909 511</a></p></div>
+<div><span>📷</span><p style="margin:0"><b data-i="instaL"></b><a href="https://www.instagram.com/alfa_sport_kara_suu/" target="_blank" rel="noopener noreferrer">@alfa_sport_kara_suu</a></p></div>
+<div><span>🏋️</span><p style="margin:0"><b data-i="trL"></b>Маратбек Абдурасулов</p></div>
+</div>
+<div class="btns" style="justify-content:flex-start"><a class="btn" href="tel:+996708440092" data-i="call"></a><a class="btn ghost" href="https://wa.me/996990909511" target="_blank" rel="noopener">WhatsApp</a></div>
+</div>
+<form id="f">
+<input id="n" required data-ph="fName">
+<input id="p" type="tel" required data-ph="fPhone">
+<select id="s"><option value="trial" data-i="o1"></option><option value="membership" data-i="o2"></option><option value="trainer" data-i="o3"></option><option value="boxing" data-i="o4"></option><option value="wrestling" data-i="o5"></option><option value="fitness" data-i="o6"></option></select>
+<a class="btn" id="wa" href="https://wa.me/996990909511" target="_blank" rel="noopener" style="text-align:center" data-i="send"></a>
+</form>
+</div></section>
+</main>
+<div id="direction-view" hidden>
+<section><div class="wrap">
+<a class="btn ghost sm" href="#sports" data-i="directionsBack"></a>
+<div id="direction-content"></div>
+</div></section>
+</div>
+<div id='shop-view' hidden>
+<section><div class='wrap'>
+<a class='btn ghost sm' href='#top' data-i='back'></a>
+<h2 data-i='storeT' style='margin-top:24px'></h2>
+<p class='sub' data-i='shopS'></p>
+<div class='grid' id='prods'></div>
+</div></section>
+<section id='cart' class='alt'><div class='wrap info'>
+<div><h2 data-i='cartT'></h2><div id='cartList' style='margin-top:20px'></div><p class='mu' data-i='priceNote' style='margin-top:14px'></p></div>
+<form id='of'>
+<input id='oname' required data-ph='fName'>
+<input id='ophone' type='tel' required data-ph='fPhone'>
+<a class='btn' id='owa' href='https://wa.me/996990909511' target='_blank' rel='noopener' style='text-align:center' data-i='ord'></a>
+<div id='cartNote' style='color:var(--red);font-weight:600;min-height:22px'></div>
+</form>
+</div></section>
+</div>
+<div id="admin-view" hidden>
+<section><div class="wrap">
+<a class="btn ghost sm" href="#top" data-i="back"></a>
+<div id="admin-content"></div>
+</div></section>
+</div>
+<div id="cloud-status" class="cloud-status" role="status" hidden></div>
+<button id='pill' class='btn sm' hidden type='button'></button>
+
+<footer><div class="logo">ALFA <span style="color:var(--red)">GYM</span></div><span data-i="foot"></span></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
