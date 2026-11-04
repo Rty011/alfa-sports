@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rty011.github.io/alfa-sports/sitemap.xml
