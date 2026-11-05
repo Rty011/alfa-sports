@@ -31,6 +31,9 @@ T.ru.scheduleTitle="Расписание тренировок";T.ky.scheduleTitl
 T.ru.scheduleUnknown="Расписание уточняется.";T.ky.scheduleUnknown="Машыгуу убактысы такталууда.";
 T.ru.scheduleDays=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
 T.ky.scheduleDays=["Дүйшөмбү","Шейшемби","Шаршемби","Бейшемби","Жума","Ишемби","Жекшемби"];
+T.ru.scheduleDayShort=["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"];
+T.ky.scheduleDayShort=["ДШ","ШШ","ШР","БШ","ЖМ","ИШ","ЖК"];
+T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күнү";
 T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
 T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
 T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
@@ -191,17 +194,14 @@ return `<div class="admin-schedule-days" data-schedule-editor="${direction}">${e
 }
 function renderScheduleTable(direction){
 var days=T[lang].scheduleDays,slots=scheduleSlots[direction]||[];
-var header=`<thead><tr><th scope="col">${T[lang].scheduleTimeLabel}</th>${days.map(function(day){return `<th scope="col">${day}</th>`}).join('')}</tr></thead>`;
-var times=Array.from(new Set(slots.map(formatScheduleTime))).sort();
-if(!times.length)return `<p class="schedule-note">${T[lang].scheduleNone}</p>`;
-var body=times.map(function(time){
-var cells=days.map(function(day,dayIndex){
-var lessons=slots.filter(function(slot){return slot.weekday===dayIndex+1&&formatScheduleTime(slot)===time;});
-return `<td${lessons.length?' class="is-training"':''}>${lessons.map(function(slot){var title=slot.title_ru||slot.title_ky||D[lang][direction].title;var hall=slot.hall?`<small>${escapeHtml(slot.hall)}</small>`:'';return `<span class="schedule-training-label">${escapeHtml(lang==='ky'?(slot.title_ky||title):(slot.title_ru||title))}${hall}</span>`}).join('')}</td>`;
-}).join('');
-return `<tr><th scope="row"><time datetime="${escapeHtml(time)}">${escapeHtml(time)}</time></th>${cells}</tr>`;
-}).join('');
-return `<div class="schedule-table-scroll"><table class="schedule-table">${header}<tbody>${body}</tbody></table></div>`;
+return `<div class="week-schedule-grid">${days.map(function(day,dayIndex){
+var lessons=slots.filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
+var sessions=lessons.length?lessons.map(function(slot){
+var title=lang==='ky'?(slot.title_ky||slot.title_ru||D[lang][direction].title):(slot.title_ru||slot.title_ky||D[lang][direction].title);
+return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(formatScheduleTime(slot))}">${escapeHtml(formatScheduleTime(slot))}</time> — ${escapeHtml(title)}</span></div>${slot.hall?`<span class="week-class-hall">${escapeHtml(slot.hall)}</span>`:''}</div>`;
+}).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
+return `<article class="week-day-card"><h3><span>${T[lang].scheduleDayShort[dayIndex]}</span><span class="week-day-full">${escapeHtml(day)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
+}).join('')}</div>`;
 }
 async function loadCloudData(){
 if(!supabaseConfigured)return;

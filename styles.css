@@ -76,17 +76,6 @@ footer{border-top:1px solid var(--line);text-align:center;padding:28px 20px;font
 .direction-details .card li{margin:0 0 8px;color:var(--muted)}
 .direction-schedule{padding:0 0 36px}
 .direction-schedule h2{margin-bottom:20px}
-.schedule-table-scroll{overflow-x:auto;border-radius:14px;overscroll-behavior-x:contain}
-.schedule-table{width:100%;min-width:850px;table-layout:fixed;border-collapse:separate;border-spacing:4px}
-.schedule-table th,.schedule-table td{height:42px;padding:7px 8px;border:1px solid #6b88f5;border-radius:6px;text-align:center}
-.schedule-table thead th,.schedule-table tbody th{background:#6683f1;color:#fff;font-weight:600}
-.schedule-table thead th{height:44px}
-.schedule-table tbody th{width:82px}
-.schedule-table td{background:#fff}
-.schedule-table td.is-training{border-color:#a6dcb1;background:#e6f6e9;color:#176d2e}
-.schedule-training-label{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;font-weight:700;white-space:normal}
-.schedule-training-label::before{width:7px;height:7px;border-radius:50%;background:#269344;content:""}
-.schedule-training-label small{color:var(--muted);font-size:11px;font-weight:500}
 .schedule-note{max-width:620px;margin:0;padding:20px 24px;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:16px;background:var(--surface);color:var(--muted);font-size:17px;font-weight:500}
 .direction-prices{padding-top:0}
 .direction-prices h2{margin-bottom:20px}
@@ -151,8 +140,6 @@ section{padding:48px 0}
 .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
 .direction-hero{padding:24px}
 .direction-hero p{font-size:16px}
-.schedule-table{min-width:780px}
-.schedule-table th,.schedule-table td{height:40px;padding:6px 5px;font-size:12px}
 .direction-schedule{padding-bottom:28px}
 #pill{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));max-width:calc(100vw - 24px)}
 }
@@ -182,3 +169,16 @@ section h2{font-size:clamp(30px,8vw,40px)}
 .crow{align-items:flex-start;flex-wrap:wrap}
 .crow>.pr{margin-left:auto}
 }
+.week-schedule-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
+.week-day-card{min-width:0;min-height:230px;padding:20px 14px;border:1px solid #252525;border-radius:4px;background:#1d1d1d;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.week-day-card h3{display:flex;flex-direction:column;gap:2px;margin:0 0 18px;font-family:Inter,system-ui,Arial,sans-serif;font-size:30px;font-weight:500;line-height:1.15;text-transform:uppercase;letter-spacing:0}
+.week-day-full{color:#aaa;font-size:12px;font-weight:500;letter-spacing:.08em}
+.week-day-classes{display:grid;gap:0}
+.week-class{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px;padding:9px 0}
+.week-class-info{min-width:0}
+.week-class-title{font-size:15px;line-height:1.4}
+.week-class-title time{font-weight:600;white-space:nowrap}
+.week-class-hall{padding-top:2px;color:#ededed;font-size:12px;font-weight:500;text-align:right}
+.week-day-off{margin:0;padding:10px 0;color:#d0d0d0;font-size:15px}
+@media(max-width:900px){.week-schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.week-schedule-grid{grid-template-columns:minmax(0,1fr);gap:12px}.week-day-card{min-height:0;padding:18px 16px}.week-day-card h3{flex-direction:row;align-items:baseline;gap:10px;font-size:26px}.week-class{padding:8px 0}.week-class-title{font-size:15px}}
