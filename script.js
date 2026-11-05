@@ -19,58 +19,19 @@ msg:"Саламатсызбы! Менин атым {n}, номерим {p}. Тө
 T.ru.dirMore="Подробнее";T.ru.directionsBack="← Ко всем направлениям";T.ru.o6="Фитнес и силовые";
 T.ky.dirMore="Кененирээк";T.ky.directionsBack="← Бардык багыттарга";T.ky.o6="Фитнес жана күч машыгуулары";
 T.ru.navSchedule="Расписание";T.ky.navSchedule="Тартип";
-T.ru.weeklyScheduleTitle="Расписание занятий";T.ky.weeklyScheduleTitle="Машыгуу тартиби";
-T.ru.weeklyScheduleDescription="Выберите день и посмотрите время, вид тренировки и зал.";
-T.ky.weeklyScheduleDescription="Күндү тандап, машыгуу убактысын, түрүн жана залды көрүңүз.";
+T.ru.weeklyScheduleTitle="Расписание тренировок";T.ky.weeklyScheduleTitle="Машыгуулардын тартиби";
+T.ru.weeklyScheduleDescription="Время, вид тренировки и зал на каждый день недели.";
+T.ky.weeklyScheduleDescription="Аптанын ар бир күнүндөгү машыгуу убактысы, түрү жана залы.";
 T.ru.scheduleDayShort=["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"];
 T.ky.scheduleDayShort=["ДШ","ШШ","ШР","БШ","ЖМ","ИШ","ЖК"];
 T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күнү";
+T.ru.scheduleLessonRu="Тренировка";T.ky.scheduleLessonRu="Машыгуу";
+T.ru.scheduleLessonKy="Машыгуу";T.ky.scheduleLessonKy="Машыгуу";
 T.ru.scheduleHallUnspecified="Зал не указан";T.ky.scheduleHallUnspecified="Зал көрсөтүлгөн эмес";
 T.ru.scheduleHallPrefix="зал";T.ky.scheduleHallPrefix="зал";
-var weeklyClassSchedule=[
-{day:0,lessons:[{time:"16:00",title:{ru:"Растяжка и тренировка груди",ky:"Сунуу жана көкүрөк машыгуусу"},hall:null,details:{ru:"Жим штанги лёжа · жим гантелей лёжа · жим на наклонной скамье · жим сидя в тренажёре · отжимания на брусьях",ky:"Штанганы жатып көтөрүү · гантелдер менен жатып түртүү · эңкейиш отургучта штанганы түртүү · тренажёрдо отуруп түртүү · брусьяда түртүү"}}]},
-{day:1,lessons:[
-{time:"10:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
-{time:"11:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
-{time:"11:00",title:{ru:"МФР",ky:"МФР"},hall:2},
-{time:"12:00",title:{ru:"Функциональная тренировка",ky:"Функционалдык машыгуу"},hall:1},
-{time:"17:30",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:2},
-{time:"18:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
-{time:"19:00",title:{ru:"Йога I",ky:"Йога I"},hall:1},
-{time:"20:00",title:{ru:"Йога II",ky:"Йога II"},hall:1}
-]},
-{day:2,lessons:[
-{time:"10:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
-{time:"11:00",title:{ru:"Пресс",ky:"Пресс"},hall:1},
-{time:"13:00",title:{ru:"Круговая тренировка",ky:"Айлампа машыгуусу"},hall:1},
-{time:"14:00",title:{ru:"Здоровый позвоночник",ky:"Омуртка үчүн машыгуу"},hall:1},
-{time:"17:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
-{time:"18:00",title:{ru:"Степ",ky:"Степ"},hall:2},
-{time:"18:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
-{time:"18:00",title:{ru:"Сайкл",ky:"Сайкл"},hall:"студия-сайкл"},
-{time:"19:00",title:{ru:"Штанги",ky:"Штанга менен машыгуу"},hall:1},
-{time:"19:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:2}
-]},
-{day:3,lessons:[
-{time:"12:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
-{time:"13:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:1},
-{time:"17:30",title:{ru:"Йога I",ky:"Йога I"},hall:2},
-{time:"18:00",title:{ru:"Танец живота",ky:"Курсак бийи"},hall:1},
-{time:"19:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
-{time:"20:00",title:{ru:"МФР",ky:"МФР"},hall:1}
-]},
-{day:4,lessons:[
-{time:"10:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
-{time:"11:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
-{time:"13:00",title:{ru:"Функциональная тренировка",ky:"Функционалдык машыгуу"},hall:1},
-{time:"15:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
-{time:"17:00",title:{ru:"Круговая тренировка",ky:"Айлампа машыгуусу"},hall:1},
-{time:"18:00",title:{ru:"Сайкл",ky:"Сайкл"},hall:"студия-сайкл"},
-{time:"19:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:2}
-]},
-{day:5,lessons:[]},
-{day:6,lessons:[]}
-];
+T.ru.scheduleHallPlaceholder="Зал";T.ky.scheduleHallPlaceholder="Зал";
+T.ru.scheduleAddLesson="Добавить занятие";T.ky.scheduleAddLesson="Машыгуу кошуу";
+T.ru.scheduleRemove="Удалить";T.ky.scheduleRemove="Өчүрүү";
 T.ru.instaL="Instagram";T.ky.instaL="Instagram";
 T.ru.manage="Управление";T.ky.manage="Башкаруу";
 T.ru.scheduleTitle="Расписание тренировок";T.ky.scheduleTitle="Машыгуу тартиби";
@@ -80,9 +41,21 @@ T.ky.scheduleDays=["Дүйшөмбү","Шейшемби","Шаршемби","Б�
 T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
 T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
 T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
-T.ru.adminScheduleHelp="Отметьте дни и часы занятий. Изменения появятся на странице направления после сохранения.";T.ky.adminScheduleHelp="Машыгуу күндөрүн жана сааттарын белгилеңиз. Сактагандан кийин өзгөрүүлөр багыттын барагында көрүнөт.";
+T.ru.adminScheduleHelp="Добавляйте занятия, указывайте день, время и название на русском и кыргызском. После сохранения расписание появится в главном меню.";
+T.ky.adminScheduleHelp="Машыгууну кошуп, күнүн, убактысын жана аталышын орусча жана кыргызча жазыңыз. Сактагандан кийин тартип башкы менюда көрүнөт.";
 T.ru.adminScheduleSave="Сохранить расписание";T.ky.adminScheduleSave="Машыгуу тартибин сактоо";
-T.ru.adminScheduleSaved="Расписание сохранено.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды.";
+T.ru.adminScheduleSaved="Расписание сохранено и обновлено на главной странице.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды жана башкы бетте жаңыртылды.";
+T.ru.adminScheduleTitleRu="Название тренировки (русский)";T.ky.adminScheduleTitleRu="Машыгуунун аталышы (орусча)";
+T.ru.adminScheduleTitleKy="Название тренировки (кыргызский)";T.ky.adminScheduleTitleKy="Машыгуунун аталышы (кыргызча)";
+T.ru.adminScheduleTime="Время";T.ky.adminScheduleTime="Убакыт";
+T.ru.adminScheduleHall="Зал (необязательно)";T.ky.adminScheduleHall="Зал (милдеттүү эмес)";
+T.ru.adminScheduleRequired="Укажите корректные день, время и название тренировки на обоих языках.";T.ky.adminScheduleRequired="Күндү, убакытты жана машыгуунун аталышын эки тилде туура жазыңыз.";
+T.ru.adminScheduleLoadError="Не удалось загрузить расписание. Проверьте таблицу training_schedules в Supabase.";T.ky.adminScheduleLoadError="Машыгуу тартибин жүктөө мүмкүн болгон жок. Supabase'теги training_schedules таблицасын текшериңиз.";
+T.ru.adminScheduleSaving="Сохраняем расписание…";T.ky.adminScheduleSaving="Машыгуу тартиби сакталууда…";
+T.ru.adminMenuLabel="Меню панели управления";T.ky.adminMenuLabel="Башкаруу панели менюсу";
+T.ru.adminMenuPrices="Цены";T.ky.adminMenuPrices="Баалар";
+T.ru.adminMenuSchedule="Расписание";T.ky.adminMenuSchedule="Тартип";
+T.ru.adminMenuProducts="Товары";T.ky.adminMenuProducts="Товарлар";
 T.ru.scheduleNone="Тренировок пока нет";T.ky.scheduleNone="Азырынча машыгуу жок";
 T.ru.adminTitle="Панель управления";T.ky.adminTitle="Башкаруу панели";
 T.ru.adminLogin="Логин";T.ky.adminLogin="Логин";
@@ -154,8 +127,7 @@ var P=[
 ];
 var supabaseClient=null,supabaseConfigured=false,cloudAdminUser=null;
 var defaultAdminPrices={boxing:[2000,4000],wrestling:[2000,4000],fitness:[2000,4000]};
-var defaultScheduleSlots={boxing:[],wrestling:[],fitness:[{weekday:1,hour:16},{weekday:2,hour:16},{weekday:5,hour:16}]};
-var scheduleSlots={boxing:[],wrestling:[],fitness:defaultScheduleSlots.fitness.map(function(slot){return {weekday:slot.weekday,hour:slot.hour}})};
+var scheduleSlots={boxing:[],wrestling:[],fitness:[]};
 var adminPrices=defaultAdminPrices,adminSignedIn=false,editingProductId=null,pendingProductImage='',imageProcessing=false;
 function loadAdminData(){
 applyAdminPrices();
@@ -187,22 +159,56 @@ return isProductImageUrl(url)?`<img class="${className}" src="${escapeHtml(url)}
 function validScheduleSlots(value){
 if(!Array.isArray(value))return [];
 return value.filter(function(slot){
-return slot&&Number.isInteger(slot.weekday)&&slot.weekday>=1&&slot.weekday<=7&&Number.isInteger(slot.hour)&&slot.hour>=8&&slot.hour<=22;
-}).map(function(slot){return {weekday:slot.weekday,hour:slot.hour}});
+if(!slot)return false;
+var time=typeof slot.time==='string'?slot.time:(Number.isInteger(Number(slot.hour))?formatScheduleHour(Number(slot.hour)):'');
+var hour=Number(time.slice(0,2));
+return Number.isInteger(slot.weekday)&&slot.weekday>=1&&slot.weekday<=7&&/^(?:0[8-9]|1\d|2[0-2]):[0-5]\d$/.test(time)&&hour>=8&&hour<=22;
+}).map(function(slot){
+var time=typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour));
+var entry={weekday:slot.weekday,time:time};
+if(typeof slot.title_ru==='string'&&slot.title_ru.trim())entry.title_ru=slot.title_ru.trim();
+if(typeof slot.title_ky==='string'&&slot.title_ky.trim())entry.title_ky=slot.title_ky.trim();
+if(typeof slot.title==='string'&&slot.title.trim())entry.title_ru=slot.title.trim();
+if(typeof slot.hall!=='undefined'&&slot.hall!==null&&slot.hall!=='')entry.hall=String(slot.hall).trim();
+return entry;
+});
 }
-function renderScheduleTable(direction,admin){
+function formatScheduleHour(hour){
+return String(hour).padStart(2,'0')+':00';
+}
+function formatScheduleTime(slot){
+return typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour));
+}
+function scheduleSort(a,b){return formatScheduleTime(a).localeCompare(formatScheduleTime(b))}
+function buildAdminScheduleEntry(direction,dayName,slot){
+var timeValue=slot?formatScheduleTime(slot):'16:00';
+var titleRu=slot&&(slot.title_ru||slot.title)||D.ru[direction].title;
+var titleKy=slot&&(slot.title_ky||slot.title)||D.ky[direction].title;
+var hallValue=slot&&slot.hall||'';
+return `<div class="admin-schedule-entry"><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" placeholder="${escapeHtml(T[lang].adminScheduleTitleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" placeholder="${escapeHtml(T[lang].adminScheduleTitleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" placeholder="${escapeHtml(T[lang].adminScheduleHall)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"><button class="btn ghost sm" type="button" data-remove-schedule-slot>${T[lang].scheduleRemove}</button></div>`;
+}
+function buildAdminScheduleEditor(direction,slots){
+var dayNames=T[lang].scheduleDays;
+var entries=dayNames.map(function(dayName,dayIndex){
+var daySlots=(slots||[]).filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
+var rows=daySlots.map(function(slot){return buildAdminScheduleEntry(direction,dayName,slot)}).join('');
+return `<div class="admin-schedule-day" data-weekday="${dayIndex+1}"><h4>${escapeHtml(dayName)}</h4>${rows}<button class="btn ghost sm" type="button" data-add-schedule-slot>${T[lang].scheduleAddLesson}</button></div>`;
+}).join('');
+return `<div class="admin-schedule-days" data-schedule-editor="${direction}">${entries}</div>`;
+}
+function renderScheduleTable(direction){
 var days=T[lang].scheduleDays,slots=scheduleSlots[direction]||[];
 var header=`<thead><tr><th scope="col">${T[lang].scheduleTimeLabel}</th>${days.map(function(day){return `<th scope="col">${day}</th>`}).join('')}</tr></thead>`;
-var body=Array.from({length:15},function(_,index){
-var hour=index+8,label=String(hour).padStart(2,'0')+':00';
+var times=Array.from(new Set(slots.map(formatScheduleTime))).sort();
+if(!times.length)return `<p class="schedule-note">${T[lang].scheduleNone}</p>`;
+var body=times.map(function(time){
 var cells=days.map(function(day,dayIndex){
-var selected=slots.some(function(slot){return slot.weekday===dayIndex+1&&slot.hour===hour});
-if(admin)return `<td${selected?' class="is-training"':''}><input class="schedule-slot-input" type="checkbox" data-schedule-direction="${direction}" data-schedule-day="${dayIndex+1}" data-schedule-hour="${hour}" aria-label="${escapeHtml(day+' '+label)}"${selected?' checked':''}></td>`;
-return `<td${selected?' class="is-training"':''}>${selected?`<span class="schedule-training-label">${T[lang].scheduleTraining}</span>`:''}</td>`;
+var lessons=slots.filter(function(slot){return slot.weekday===dayIndex+1&&formatScheduleTime(slot)===time;});
+return `<td${lessons.length?' class="is-training"':''}>${lessons.map(function(slot){var title=slot.title_ru||slot.title_ky||D[lang][direction].title;var hall=slot.hall?`<small>${escapeHtml(slot.hall)}</small>`:'';return `<span class="schedule-training-label">${escapeHtml(lang==='ky'?(slot.title_ky||title):(slot.title_ru||title))}${hall}</span>`}).join('')}</td>`;
 }).join('');
-return `<tr><th scope="row"><time datetime="${label}">${label}</time></th>${cells}</tr>`;
+return `<tr><th scope="row"><time datetime="${escapeHtml(time)}">${escapeHtml(time)}</time></th>${cells}</tr>`;
 }).join('');
-return `${slots.length?'':`<p class="schedule-note">${T[lang].scheduleNone}</p>`}<div class="schedule-table-scroll"><table class="schedule-table${admin?' admin-schedule-table':''}">${header}<tbody>${body}</tbody></table></div>`;
+return `<div class="schedule-table-scroll"><table class="schedule-table">${header}<tbody>${body}</tbody></table></div>`;
 }
 async function loadCloudData(){
 if(!supabaseConfigured)return;
@@ -211,17 +217,17 @@ if(productsResult.error){console.error('Ошибка загрузки товар
 var pricesResult=await supabaseClient.from('training_prices').select('direction,with_coach,price');
 if(pricesResult.error){console.error('Ошибка загрузки цен:',pricesResult.error);setCloudStatus(T[lang].cloudLoadError,true);return}
 var schedulesResult=await supabaseClient.from('training_schedules').select('direction,slots');
-if(schedulesResult.error){console.error('Ошибка загрузки расписания:',schedulesResult.error);setCloudStatus(T[lang].cloudLoadError,true);return}
+if(schedulesResult.error)console.error('Ошибка загрузки расписания:',schedulesResult.error);
 P=productsResult.data.map(productFromCloud);
 var prices={};
 pricesResult.data.forEach(function(row){if(!prices[row.direction])prices[row.direction]=[];prices[row.direction][row.with_coach?1:0]=Number(row.price)});
 if(['boxing','wrestling','fitness'].every(function(id){return Array.isArray(prices[id])&&prices[id].length===2&&prices[id].every(Number.isFinite)}))adminPrices=prices;
-var loadedSchedules={};
-schedulesResult.data.forEach(function(row){loadedSchedules[row.direction]=validScheduleSlots(row.slots)});
-['boxing','wrestling','fitness'].forEach(function(id){if(Object.prototype.hasOwnProperty.call(loadedSchedules,id))scheduleSlots[id]=loadedSchedules[id]});
+scheduleSlots={boxing:[],wrestling:[],fitness:[]};
+if(!schedulesResult.error)schedulesResult.data.forEach(function(row){if(Object.prototype.hasOwnProperty.call(scheduleSlots,row.direction))scheduleSlots[row.direction]=validScheduleSlots(row.slots)});
 applyAdminPrices();
-setCloudStatus('',false);
+setCloudStatus(schedulesResult.error?T[lang].adminScheduleLoadError:'',Boolean(schedulesResult.error));
 renderShop();
+renderWeeklySchedule();
 var directionId=location.hash.slice(1);
 if(Object.prototype.hasOwnProperty.call(D.ru,directionId))renderDirection(directionId);
 if(location.hash==='#admin'&&adminSignedIn)renderAdmin();
@@ -279,18 +285,35 @@ updOrder();
 function renderWeeklySchedule(){
 var root=document.getElementById('weekly-schedule-grid');
 if(!root)return;
-root.innerHTML=weeklyClassSchedule.map(function(day){
-var dayLabel=T[lang].scheduleDays[day.day],dayShort=T[lang].scheduleDayShort[day.day];
+var entriesByDay=T[lang].scheduleDays.map(function(day,dayIndex){
+var lessons=[];
+['boxing','wrestling','fitness'].forEach(function(direction){
+var directionMeta=D[lang][direction];
+(scheduleSlots[direction]||[]).forEach(function(slot){
+if(slot.weekday!==dayIndex+1)return;
+var title=slot.title_ru||slot.title||directionMeta.title;
+var titleKy=slot.title_ky||slot.title||directionMeta.title;
+lessons.push({
+  time:formatScheduleTime(slot),
+  title:lang==='ky'&&titleKy?titleKy:title,
+  hall:slot.hall||''
+});
+});
+});
+lessons.sort(function(a,b){return a.time.localeCompare(b.time)||a.title.localeCompare(b.title)});
+return {day:dayIndex,dayLabel:day,dayShort:T[lang].scheduleDayShort[dayIndex],lessons:lessons};
+});
+root.innerHTML=entriesByDay.map(function(day){
 var sessions=day.lessons.length?day.lessons.map(function(lesson){
-var hall=lesson.hall===null?T[lang].scheduleHallUnspecified:typeof lesson.hall==='number'?T[lang].scheduleHallPrefix+' №'+lesson.hall:lesson.hall;
-return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(lesson.time)}">${escapeHtml(lesson.time)}</time> — ${escapeHtml(lesson.title[lang])}</span>${lesson.details?`<small>${escapeHtml(lesson.details[lang])}</small>`:''}</div><span class="week-class-hall">${escapeHtml(hall)}</span></div>`;
+return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(lesson.time)}">${escapeHtml(lesson.time)}</time> — ${escapeHtml(lesson.title)}</span></div>${lesson.hall?`<span class="week-class-hall">${escapeHtml(lesson.hall)}</span>`:''}</div>`;
 }).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
-return `<article class="week-day-card"><h3><span>${escapeHtml(dayShort)}</span><span class="week-day-full">${escapeHtml(dayLabel)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
+return `<article class="week-day-card"><h3><span>${escapeHtml(day.dayShort)}</span><span class="week-day-full">${escapeHtml(day.dayLabel)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
 }).join('');
 }
 function renderAdminScheduleEditor(direction){
-return `<article class="card admin-schedule-editor"><h3>${escapeHtml(D[lang][direction].title)}</h3>${renderScheduleTable(direction,true)}<button class="btn sm" type="button" data-save-schedule="${direction}">${T[lang].adminScheduleSave}</button><p class="admin-status" id="schedule-status-${direction}" role="status"></p></article>`;
+return `<article class="card admin-schedule-editor" data-schedule-direction="${direction}"><h3>${escapeHtml(D[lang][direction].title)}</h3>${buildAdminScheduleEditor(direction, scheduleSlots[direction] || [])}<button class="btn sm" type="button" data-save-schedule="${direction}">${T[lang].adminScheduleSave}</button><p class="admin-status" id="schedule-status-${direction}" role="status"></p></article>`;
 }
+var adminActiveSection='prices';
 function renderAdmin(){
 var root=document.getElementById('admin-content'),d=T[lang];
 if(location.hash==='#password-reset'){
@@ -303,9 +326,13 @@ return;
 }
 var directions=['boxing','wrestling','fitness'];
 var priceFields=directions.map(function(id){return `<fieldset class="admin-price-row"><legend>${escapeHtml(D[lang][id].title)}</legend><label>${d.adminNoCoach}<input type="number" min="0" step="1" required data-price-dir="${id}" data-price-index="0" value="${adminPrices[id][0]}"></label><label>${d.adminWithCoach}<input type="number" min="0" step="1" required data-price-dir="${id}" data-price-index="1" value="${adminPrices[id][1]}"></label></fieldset>`}).join('');
-var scheduleEditors=directions.map(renderAdminScheduleEditor).join('');
 var productRows=P.map(function(product){var image=productImageMarkup(product.img,product[lang][0],'admin-product-image')||`<div class="admin-product-placeholder">${escapeHtml(T[lang].productNoPhoto)}</div>`;return `<article class="card admin-product-row">${image}<div><b>${escapeHtml(product[lang][0])}</b><br><span class="mu">${fm(product.p)} ${d.cur}</span></div><div class="admin-actions"><button class="btn ghost sm" type="button" data-edit-product="${product.id}">${d.adminEdit}</button><button class="btn ghost sm" type="button" data-delete-product="${product.id}">${d.adminDelete}</button></div></article>`}).join('');
-root.innerHTML=`<div class="admin-heading"><h1>${d.adminTitle}</h1><button class="btn ghost sm" id="admin-logout" type="button">${d.adminLogout}</button></div><form id="admin-prices-form"><h2>${d.adminPrices}</h2>${priceFields}<button class="btn" type="submit">${d.adminSave}</button><p class="admin-status" id="price-status" role="status"></p></form><section class="admin-schedules"><h2>${d.adminSchedule}</h2><p class="sub">${d.adminScheduleHelp}</p><div class="admin-schedule-list">${scheduleEditors}</div></section><section class="admin-products"><h2>${d.adminProducts}</h2><form id="admin-product-form"><input type="hidden" name="id"><label>${d.adminNameRu}<input name="nameRu" required></label><label>${d.adminDescRu}<input name="descRu" required></label><label>${d.adminNameKy}<input name="nameKy" required></label><label>${d.adminDescKy}<input name="descKy" required></label><label>${d.adminPrice}<input name="price" type="number" min="0" step="1" required></label><label>${d.adminPhoto}<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>${d.adminPhotoHint}</small></label><div class="admin-photo-preview" id="product-photo-preview" aria-live="polite">${escapeHtml(T[lang].productNoPhoto)}</div><button class="btn" type="submit">${d.adminSave}</button><button class="btn ghost sm" id="admin-cancel-edit" type="button" hidden>${d.adminCancel}</button><p class="admin-status" id="product-status" role="status"></p></form><div class="admin-product-list">${productRows}</div></section>`;
+var sections=[
+{key:'prices',label:d.adminMenuPrices,content:`<form id="admin-prices-form"><h2>${d.adminPrices}</h2>${priceFields}<button class="btn" type="submit">${d.adminSave}</button><p class="admin-status" id="price-status" role="status"></p></form>`},
+{key:'schedule',label:d.adminMenuSchedule,content:`<section class="admin-schedules"><h2>${d.adminSchedule}</h2><p class="sub">${d.adminScheduleHelp}</p><div class="admin-schedule-list">${directions.map(renderAdminScheduleEditor).join('')}</div></section>`},
+{key:'products',label:d.adminMenuProducts,content:`<section class="admin-products"><h2>${d.adminProducts}</h2><form id="admin-product-form"><input type="hidden" name="id"><label>${d.adminNameRu}<input name="nameRu" required></label><label>${d.adminDescRu}<input name="descRu" required></label><label>${d.adminNameKy}<input name="nameKy" required></label><label>${d.adminDescKy}<input name="descKy" required></label><label>${d.adminPrice}<input name="price" type="number" min="0" step="1" required></label><label>${d.adminPhoto}<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>${d.adminPhotoHint}</small></label><div class="admin-photo-preview" id="product-photo-preview" aria-live="polite">${escapeHtml(T[lang].productNoPhoto)}</div><button class="btn" type="submit">${d.adminSave}</button><button class="btn ghost sm" id="admin-cancel-edit" type="button" hidden>${d.adminCancel}</button><p class="admin-status" id="product-status" role="status"></p></form><div class="admin-product-list">${productRows}</div></section>`}
+];
+root.innerHTML=`<div class="admin-heading"><h1>${d.adminTitle}</h1><button class="btn ghost sm" id="admin-logout" type="button">${d.adminLogout}</button></div><nav class="admin-menu" aria-label="${d.adminMenuLabel}">${sections.map(function(section){return `<button class="btn ghost sm admin-section-tab${adminActiveSection===section.key?' is-active':''}" type="button" data-admin-section="${section.key}">${section.label}</button>`}).join('')}</nav>${sections.map(function(section){return `<div class="admin-section${adminActiveSection===section.key?' is-visible':' is-hidden'}" data-admin-section-content="${section.key}">${section.content}</div>`}).join('')}`;
 }
 function setAdminStatus(id,message,error){
 var node=document.getElementById(id);
@@ -359,7 +386,7 @@ reader.readAsDataURL(file);
 function renderDirection(id){
 var d=D[lang][id];
 if(!d)return;
-var schedule=renderScheduleTable(id,false);
+var schedule=renderScheduleTable(id);
 document.getElementById('direction-content').innerHTML=`<div class="direction-hero"><img class="direction-hero-image" src="${directionImages[id]}" alt="${d.title}"><h1>${d.title}</h1><p>${d.intro}</p></div><div class="grid direction-details"><article class="card"><h3>${d.learnTitle}</h3><ul>${d.learn.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.forTitle}</h3><ul>${d.forList.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.resultTitle}</h3><p>${d.result}</p></article></div><section class="direction-schedule"><h2>${T[lang].scheduleTitle}</h2>${schedule}</section>${d.prices?`<section class="direction-prices"><h2>${d.priceTitle}</h2><div class="grid">${d.prices.map(function(price,index){return `<a class="card direction-price-card" href="#contact" data-enroll="${id}" data-plan="${index}"><h3>${price[0]}</h3><p class="direction-price">${price[1]}</p><span class="direction-price-cta">${T[lang].priceCta}</span></a>`}).join('')}</div></section>`:''}<div class="btns"><a class="btn" href="#contact" data-enroll="${id}">${T[lang].cta1}</a><a class="btn ghost" href="#sports">${T[lang].nav4}</a></div>`;
 }
 var lang="ru",selectedPrice=null;
@@ -475,19 +502,49 @@ editingProductId=null;pendingProductImage='';renderAdmin();renderShop();setAdmin
 }
 });
 document.addEventListener('click',function(e){
+var addSchedule=e.target.closest('[data-add-schedule-slot]');
+if(addSchedule){
+var addDay=addSchedule.closest('.admin-schedule-day'),weekday=Number(addDay.getAttribute('data-weekday'));
+var direction=addSchedule.closest('[data-schedule-editor]').getAttribute('data-schedule-editor');
+addSchedule.insertAdjacentHTML('beforebegin',buildAdminScheduleEntry(direction,T[lang].scheduleDays[weekday-1],null));
+return;
+}
+var removeSchedule=e.target.closest('[data-remove-schedule-slot]');
+if(removeSchedule){removeSchedule.closest('.admin-schedule-entry').remove();return}
 var saveSchedule=e.target.closest('[data-save-schedule]');
 if(saveSchedule){
-var direction=saveSchedule.getAttribute('data-save-schedule'),editor=saveSchedule.closest('.admin-schedule-editor');
-if(!editor)return;
-var slots=Array.from(editor.querySelectorAll('.schedule-slot-input:checked')).map(function(input){return {weekday:Number(input.getAttribute('data-schedule-day')),hour:Number(input.getAttribute('data-schedule-hour'))}});
-if(!['boxing','wrestling','fitness'].includes(direction)||validScheduleSlots(slots).length!==slots.length){setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true);return}
+var editor=saveSchedule.closest('.admin-schedule-editor'),direction=saveSchedule.getAttribute('data-save-schedule'),nextSlots=[],invalid=false;
+editor.querySelectorAll('.admin-schedule-day').forEach(function(day){
+var weekday=Number(day.getAttribute('data-weekday'));
+day.querySelectorAll('.admin-schedule-entry').forEach(function(entry){
+var time=entry.querySelector('.schedule-slot-time').value;
+var titleRu=entry.querySelector('.schedule-slot-title-ru').value.trim();
+var titleKy=entry.querySelector('.schedule-slot-title-ky').value.trim();
+var hour=Number(time.slice(0,2));
+if(!Number.isInteger(weekday)||weekday<1||weekday>7||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||hour<8||hour>22||!titleRu||!titleKy){invalid=true;return}
+var slot={weekday:weekday,time:time,title_ru:titleRu,title_ky:titleKy};
+var hall=entry.querySelector('.schedule-slot-hall').value.trim();
+if(hall)slot.hall=hall;
+nextSlots.push(slot);
+});
+});
+if(invalid){setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleRequired,true);return}
+nextSlots.sort(function(a,b){return a.weekday-b.weekday||scheduleSort(a,b)});
 saveSchedule.disabled=true;
-supabaseClient.from('training_schedules').upsert({direction:direction,slots:slots},{onConflict:'direction'}).then(function(result){
+setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaving,false);
+supabaseClient.from('training_schedules').upsert({direction:direction,slots:nextSlots},{onConflict:'direction'}).then(function(result){
 if(result.error){console.error('Ошибка сохранения расписания:',result.error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true);return}
-scheduleSlots[direction]=slots;
+scheduleSlots[direction]=nextSlots;
+renderWeeklySchedule();
 if(location.hash==='#'+direction)renderDirection(direction);
 setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaved,false);
 }).catch(function(error){console.error('Ошибка сохранения расписания:',error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true)}).finally(function(){saveSchedule.disabled=false});
+return;
+}
+var adminSection=e.target.closest('[data-admin-section]');
+if(adminSection){
+adminActiveSection=adminSection.getAttribute('data-admin-section');
+renderAdmin();
 return;
 }
 var edit=e.target.closest('[data-edit-product]');
