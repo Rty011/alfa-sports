@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-labelledby="title">
   <title id="title">ALFA GYM</title>
-  <g fill="none" stroke="#c7a451" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#e31e24" stroke-linecap="round" stroke-linejoin="round">
     <path d="M8 36h48" stroke-width="7"/>
     <path d="M15 22v28M23 17v38M41 17v38M49 22v28" stroke-width="7"/>
   </g>
-  <text x="76" y="54" fill="#f1dfaa" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="-1.5">ALFA</text>
-  <text x="185" y="54" fill="#c7a451" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="-1.5">GYM</text>
+  <text x="76" y="54" fill="#161616" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="-1.5">ALFA</text>
+  <text x="185" y="54" fill="#e31e24" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="-1.5">GYM</text>
 </svg>
