@@ -182,17 +182,3 @@ section h2{font-size:clamp(30px,8vw,40px)}
 .crow{align-items:flex-start;flex-wrap:wrap}
 .crow>.pr{margin-left:auto}
 }
-.week-schedule-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
-.week-day-card{min-width:0;padding:20px 14px;border:1px solid #252525;border-radius:4px;background:#1d1d1d;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.1)}
-.week-day-card h3{display:flex;flex-direction:column;gap:2px;margin:0 0 18px;font-family:Inter,system-ui,Arial,sans-serif;font-size:30px;font-weight:500;line-height:1.15;text-transform:uppercase;letter-spacing:0}
-.week-day-full{color:#aaa;font-size:12px;font-weight:500;letter-spacing:.08em}
-.week-day-classes{display:grid;gap:0}
-.week-class{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px;padding:9px 0}
-.week-class-info{min-width:0}
-.week-class-title{font-size:15px;line-height:1.4}
-.week-class-title time{font-weight:600;white-space:nowrap}
-.week-class-info small{display:block;margin-top:5px;color:#c5c5c5;font-size:12px;line-height:1.45}
-.week-class-hall{padding-top:2px;color:#ededed;font-size:12px;font-weight:500;text-align:right;white-space:nowrap}
-.week-day-off{margin:0;padding:10px 0;color:#d0d0d0;font-size:15px}
-@media(max-width:900px){.week-schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){.week-schedule-grid{grid-template-columns:minmax(0,1fr);gap:12px}.week-day-card{padding:18px 16px}.week-day-card h3{flex-direction:row;align-items:baseline;gap:10px;font-size:26px}.week-class{padding:8px 0}.week-class-title{font-size:15px}}

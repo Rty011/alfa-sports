@@ -18,13 +18,6 @@ msg:"Саламатсызбы! Менин атым {n}, номерим {p}. Тө
 };
 T.ru.dirMore="Подробнее";T.ru.directionsBack="← Ко всем направлениям";T.ru.o6="Фитнес и силовые";
 T.ky.dirMore="Кененирээк";T.ky.directionsBack="← Бардык багыттарга";T.ky.o6="Фитнес жана күч машыгуулары";
-T.ru.navSchedule="Расписание";T.ky.navSchedule="Тартип";
-T.ru.weeklyScheduleTitle="Расписание тренировок";T.ky.weeklyScheduleTitle="Машыгуулардын тартиби";
-T.ru.weeklyScheduleDescription="Время, вид тренировки и зал на каждый день недели.";
-T.ky.weeklyScheduleDescription="Аптанын ар бир күнүндөгү машыгуу убактысы, түрү жана залы.";
-T.ru.scheduleDayShort=["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"];
-T.ky.scheduleDayShort=["ДШ","ШШ","ШР","БШ","ЖМ","ИШ","ЖК"];
-T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күнү";
 T.ru.scheduleLessonRu="Тренировка";T.ky.scheduleLessonRu="Машыгуу";
 T.ru.scheduleLessonKy="Машыгуу";T.ky.scheduleLessonKy="Машыгуу";
 T.ru.scheduleHallUnspecified="Зал не указан";T.ky.scheduleHallUnspecified="Зал көрсөтүлгөн эмес";
@@ -41,10 +34,10 @@ T.ky.scheduleDays=["Дүйшөмбү","Шейшемби","Шаршемби","Б�
 T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
 T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
 T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
-T.ru.adminScheduleHelp="Добавляйте занятия, указывайте день, время и название на русском и кыргызском. После сохранения расписание появится в главном меню.";
-T.ky.adminScheduleHelp="Машыгууну кошуп, күнүн, убактысын жана аталышын орусча жана кыргызча жазыңыз. Сактагандан кийин тартип башкы менюда көрүнөт.";
+T.ru.adminScheduleHelp="Добавляйте занятия для каждого направления. После сохранения посетители увидят расписание на странице бокса, борьбы или фитнеса.";
+T.ky.adminScheduleHelp="Ар бир багытка машыгууларды кошуңуз. Сактагандан кийин машыгуулардын тартиби бокс, күрөш же фитнес бетинде көрүнөт.";
 T.ru.adminScheduleSave="Сохранить расписание";T.ky.adminScheduleSave="Машыгуу тартибин сактоо";
-T.ru.adminScheduleSaved="Расписание сохранено и обновлено на главной странице.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды жана башкы бетте жаңыртылды.";
+T.ru.adminScheduleSaved="Расписание сохранено и обновлено на странице направления.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды жана багыттын бетинде жаңыртылды.";
 T.ru.adminScheduleTitleRu="Название тренировки (русский)";T.ky.adminScheduleTitleRu="Машыгуунун аталышы (орусча)";
 T.ru.adminScheduleTitleKy="Название тренировки (кыргызский)";T.ky.adminScheduleTitleKy="Машыгуунун аталышы (кыргызча)";
 T.ru.adminScheduleTime="Время";T.ky.adminScheduleTime="Убакыт";
@@ -227,7 +220,6 @@ if(!schedulesResult.error)schedulesResult.data.forEach(function(row){if(Object.p
 applyAdminPrices();
 setCloudStatus(schedulesResult.error?T[lang].adminScheduleLoadError:'',Boolean(schedulesResult.error));
 renderShop();
-renderWeeklySchedule();
 var directionId=location.hash.slice(1);
 if(Object.prototype.hasOwnProperty.call(D.ru,directionId))renderDirection(directionId);
 if(location.hash==='#admin'&&adminSignedIn)renderAdmin();
@@ -281,34 +273,6 @@ var pill=document.getElementById('pill');
 pill.hidden=!(inShop&&cnt()>0);
 pill.textContent=d.cartBtn+' · '+cnt()+' · '+fm(tot())+' '+d.cur;
 updOrder();
-}
-function renderWeeklySchedule(){
-var root=document.getElementById('weekly-schedule-grid');
-if(!root)return;
-var entriesByDay=T[lang].scheduleDays.map(function(day,dayIndex){
-var lessons=[];
-['boxing','wrestling','fitness'].forEach(function(direction){
-var directionMeta=D[lang][direction];
-(scheduleSlots[direction]||[]).forEach(function(slot){
-if(slot.weekday!==dayIndex+1)return;
-var title=slot.title_ru||slot.title||directionMeta.title;
-var titleKy=slot.title_ky||slot.title||directionMeta.title;
-lessons.push({
-  time:formatScheduleTime(slot),
-  title:lang==='ky'&&titleKy?titleKy:title,
-  hall:slot.hall||''
-});
-});
-});
-lessons.sort(function(a,b){return a.time.localeCompare(b.time)||a.title.localeCompare(b.title)});
-return {day:dayIndex,dayLabel:day,dayShort:T[lang].scheduleDayShort[dayIndex],lessons:lessons};
-});
-root.innerHTML=entriesByDay.map(function(day){
-var sessions=day.lessons.length?day.lessons.map(function(lesson){
-return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(lesson.time)}">${escapeHtml(lesson.time)}</time> — ${escapeHtml(lesson.title)}</span></div>${lesson.hall?`<span class="week-class-hall">${escapeHtml(lesson.hall)}</span>`:''}</div>`;
-}).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
-return `<article class="week-day-card"><h3><span>${escapeHtml(day.dayShort)}</span><span class="week-day-full">${escapeHtml(day.dayLabel)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
-}).join('');
 }
 function renderAdminScheduleEditor(direction){
 return `<article class="card admin-schedule-editor" data-schedule-direction="${direction}"><h3>${escapeHtml(D[lang][direction].title)}</h3>${buildAdminScheduleEditor(direction, scheduleSlots[direction] || [])}<button class="btn sm" type="button" data-save-schedule="${direction}">${T[lang].adminScheduleSave}</button><p class="admin-status" id="schedule-status-${direction}" role="status"></p></article>`;
@@ -401,7 +365,6 @@ document.getElementById("b-ky").className=l==="ky"?"on":"";
 try{localStorage.setItem("alfa-lang",l)}catch(e){}
 updateWa();
 renderShop();
-renderWeeklySchedule();
 var directionId=location.hash.slice(1);
 if(Object.prototype.hasOwnProperty.call(D.ru,directionId))renderDirection(directionId);
 if(location.hash==='#admin'||location.hash==='#password-reset')renderAdmin();
@@ -535,7 +498,6 @@ setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaving,false);
 supabaseClient.from('training_schedules').upsert({direction:direction,slots:nextSlots},{onConflict:'direction'}).then(function(result){
 if(result.error){console.error('Ошибка сохранения расписания:',result.error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true);return}
 scheduleSlots[direction]=nextSlots;
-renderWeeklySchedule();
 if(location.hash==='#'+direction)renderDirection(direction);
 setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaved,false);
 }).catch(function(error){console.error('Ошибка сохранения расписания:',error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true)}).finally(function(){saveSchedule.disabled=false});
