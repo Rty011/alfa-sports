@@ -18,6 +18,59 @@ msg:"Саламатсызбы! Менин атым {n}, номерим {p}. Тө
 };
 T.ru.dirMore="Подробнее";T.ru.directionsBack="← Ко всем направлениям";T.ru.o6="Фитнес и силовые";
 T.ky.dirMore="Кененирээк";T.ky.directionsBack="← Бардык багыттарга";T.ky.o6="Фитнес жана күч машыгуулары";
+T.ru.navSchedule="Расписание";T.ky.navSchedule="Тартип";
+T.ru.weeklyScheduleTitle="Расписание занятий";T.ky.weeklyScheduleTitle="Машыгуу тартиби";
+T.ru.weeklyScheduleDescription="Выберите день и посмотрите время, вид тренировки и зал.";
+T.ky.weeklyScheduleDescription="Күндү тандап, машыгуу убактысын, түрүн жана залды көрүңүз.";
+T.ru.scheduleDayShort=["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"];
+T.ky.scheduleDayShort=["ДШ","ШШ","ШР","БШ","ЖМ","ИШ","ЖК"];
+T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күнү";
+T.ru.scheduleHallUnspecified="Зал не указан";T.ky.scheduleHallUnspecified="Зал көрсөтүлгөн эмес";
+T.ru.scheduleHallPrefix="зал";T.ky.scheduleHallPrefix="зал";
+var weeklyClassSchedule=[
+{day:0,lessons:[{time:"16:00",title:{ru:"Растяжка и тренировка груди",ky:"Сунуу жана көкүрөк машыгуусу"},hall:null,details:{ru:"Жим штанги лёжа · жим гантелей лёжа · жим на наклонной скамье · жим сидя в тренажёре · отжимания на брусьях",ky:"Штанганы жатып көтөрүү · гантелдер менен жатып түртүү · эңкейиш отургучта штанганы түртүү · тренажёрдо отуруп түртүү · брусьяда түртүү"}}]},
+{day:1,lessons:[
+{time:"10:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
+{time:"11:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
+{time:"11:00",title:{ru:"МФР",ky:"МФР"},hall:2},
+{time:"12:00",title:{ru:"Функциональная тренировка",ky:"Функционалдык машыгуу"},hall:1},
+{time:"17:30",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:2},
+{time:"18:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
+{time:"19:00",title:{ru:"Йога I",ky:"Йога I"},hall:1},
+{time:"20:00",title:{ru:"Йога II",ky:"Йога II"},hall:1}
+]},
+{day:2,lessons:[
+{time:"10:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
+{time:"11:00",title:{ru:"Пресс",ky:"Пресс"},hall:1},
+{time:"13:00",title:{ru:"Круговая тренировка",ky:"Айлампа машыгуусу"},hall:1},
+{time:"14:00",title:{ru:"Здоровый позвоночник",ky:"Омуртка үчүн машыгуу"},hall:1},
+{time:"17:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
+{time:"18:00",title:{ru:"Степ",ky:"Степ"},hall:2},
+{time:"18:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
+{time:"18:00",title:{ru:"Сайкл",ky:"Сайкл"},hall:"студия-сайкл"},
+{time:"19:00",title:{ru:"Штанги",ky:"Штанга менен машыгуу"},hall:1},
+{time:"19:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:2}
+]},
+{day:3,lessons:[
+{time:"12:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
+{time:"13:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:1},
+{time:"17:30",title:{ru:"Йога I",ky:"Йога I"},hall:2},
+{time:"18:00",title:{ru:"Танец живота",ky:"Курсак бийи"},hall:1},
+{time:"19:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
+{time:"20:00",title:{ru:"МФР",ky:"МФР"},hall:1}
+]},
+{day:4,lessons:[
+{time:"10:00",title:{ru:"Пилатес",ky:"Пилатес"},hall:1},
+{time:"11:00",title:{ru:"Тренировка на верх тела",ky:"Дененин үстүңкү бөлүгүнө машыгуу"},hall:1},
+{time:"13:00",title:{ru:"Функциональная тренировка",ky:"Функционалдык машыгуу"},hall:1},
+{time:"15:00",title:{ru:"Стальные мышцы",ky:"Болот булчуңдар"},hall:1},
+{time:"17:00",title:{ru:"Круговая тренировка",ky:"Айлампа машыгуусу"},hall:1},
+{time:"18:00",title:{ru:"Сайкл",ky:"Сайкл"},hall:"студия-сайкл"},
+{time:"19:00",title:{ru:"Растяжка",ky:"Сунуу"},hall:2}
+]},
+{day:5,lessons:[]},
+{day:6,lessons:[]}
+];
 T.ru.instaL="Instagram";T.ky.instaL="Instagram";
 T.ru.manage="Управление";T.ky.manage="Башкаруу";
 T.ru.scheduleTitle="Расписание тренировок";T.ky.scheduleTitle="Машыгуу тартиби";
@@ -223,6 +276,18 @@ pill.hidden=!(inShop&&cnt()>0);
 pill.textContent=d.cartBtn+' · '+cnt()+' · '+fm(tot())+' '+d.cur;
 updOrder();
 }
+function renderWeeklySchedule(){
+var root=document.getElementById('weekly-schedule-grid');
+if(!root)return;
+root.innerHTML=weeklyClassSchedule.map(function(day){
+var dayLabel=T[lang].scheduleDays[day.day],dayShort=T[lang].scheduleDayShort[day.day];
+var sessions=day.lessons.length?day.lessons.map(function(lesson){
+var hall=lesson.hall===null?T[lang].scheduleHallUnspecified:typeof lesson.hall==='number'?T[lang].scheduleHallPrefix+' №'+lesson.hall:lesson.hall;
+return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(lesson.time)}">${escapeHtml(lesson.time)}</time> — ${escapeHtml(lesson.title[lang])}</span>${lesson.details?`<small>${escapeHtml(lesson.details[lang])}</small>`:''}</div><span class="week-class-hall">${escapeHtml(hall)}</span></div>`;
+}).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
+return `<article class="week-day-card"><h3><span>${escapeHtml(dayShort)}</span><span class="week-day-full">${escapeHtml(dayLabel)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
+}).join('');
+}
 function renderAdminScheduleEditor(direction){
 return `<article class="card admin-schedule-editor"><h3>${escapeHtml(D[lang][direction].title)}</h3>${renderScheduleTable(direction,true)}<button class="btn sm" type="button" data-save-schedule="${direction}">${T[lang].adminScheduleSave}</button><p class="admin-status" id="schedule-status-${direction}" role="status"></p></article>`;
 }
@@ -309,6 +374,7 @@ document.getElementById("b-ky").className=l==="ky"?"on":"";
 try{localStorage.setItem("alfa-lang",l)}catch(e){}
 updateWa();
 renderShop();
+renderWeeklySchedule();
 var directionId=location.hash.slice(1);
 if(Object.prototype.hasOwnProperty.call(D.ru,directionId))renderDirection(directionId);
 if(location.hash==='#admin'||location.hash==='#password-reset')renderAdmin();
