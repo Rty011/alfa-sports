@@ -20,35 +20,27 @@ T.ru.dirMore="Подробнее";T.ru.directionsBack="← Ко всем нап�
 T.ky.dirMore="Кененирээк";T.ky.directionsBack="← Бардык багыттарга";T.ky.o6="Фитнес жана күч машыгуулары";
 T.ru.instaL="Instagram";T.ky.instaL="Instagram";
 T.ru.manage="Управление";T.ky.manage="Башкаруу";
+T.ru.scheduleTitle="Расписание тренировок";T.ky.scheduleTitle="Машыгуу тартиби";
+T.ru.scheduleUnknown="Расписание уточняется.";T.ky.scheduleUnknown="Машыгуу убактысы такталууда.";
+T.ru.scheduleDays=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+T.ky.scheduleDays=["Дүйшөмбү","Шейшемби","Шаршемби","Бейшемби","Жума","Ишемби","Жекшемби"];
+T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
+T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
+T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
+T.ru.adminScheduleHelp="Отметьте дни и часы занятий. Изменения появятся на странице направления после сохранения.";T.ky.adminScheduleHelp="Машыгуу күндөрүн жана сааттарын белгилеңиз. Сактагандан кийин өзгөрүүлөр багыттын барагында көрүнөт.";
+T.ru.adminScheduleSave="Сохранить расписание";T.ky.adminScheduleSave="Машыгуу тартибин сактоо";
+T.ru.adminScheduleSaved="Расписание сохранено.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды.";
+T.ru.scheduleNone="Тренировок пока нет";T.ky.scheduleNone="Азырынча машыгуу жок";
 T.ru.adminTitle="Панель управления";T.ky.adminTitle="Башкаруу панели";
 T.ru.adminLogin="Логин";T.ky.adminLogin="Логин";
 T.ru.adminPassword="Пароль";T.ky.adminPassword="Сырсөз";
 T.ru.adminSignIn="Войти";T.ky.adminSignIn="Кирүү";
-T.ru.adminForgot="Забыли пароль?";T.ky.adminForgot="Сырсөздү унуттуңузбу?";
-T.ru.adminEmail="Ваш email";T.ky.adminEmail="Электрондук почтаңыз";
-T.ru.adminSend="Восстановить пароль";T.ky.adminSend="Сырсөздү калыбына келтирүү";
-T.ru.adminRecoveryDemo="Введите email администратора. Supabase отправит ссылку для восстановления пароля.";
-T.ky.adminRecoveryDemo="Администратордун email дарегин жазыңыз. Supabase сырсөздү калыбына келтирүү шилтемесин жөнөтөт.";
-T.ru.adminRecoveryHint="Откройте сайт через HTTP (например, Live Server), а не как файл. В Supabase добавьте адрес сайта в Authentication → URL Configuration; для отправки писем настройте SMTP.";
-T.ky.adminRecoveryHint="Сайтты файл катары эмес, HTTP аркылуу ачыңыз (мисалы, Live Server). Supabase'те Authentication → URL Configuration бөлүмүнө сайттын дарегин кошуп, кат жөнөтүү үчүн SMTP орнотуңуз.";
-T.ru.adminHttpRequired="Для связи с Supabase откройте сайт через HTTP, например Live Server. Страницы file:// браузер блокирует.";
-T.ky.adminHttpRequired="Supabase менен туташуу үчүн сайтты HTTP аркылуу, мисалы Live Server менен ачыңыз. file:// баракчалары браузер тарабынан бөгөттөлөт.";
-T.ru.adminEmailServiceError="Supabase не отправил письмо. Проверьте SMTP-настройки и лимит отправки писем в Authentication → Logs.";
-T.ky.adminEmailServiceError="Supabase катты жөнөткөн жок. Authentication → Logs бөлүмүнөн SMTP жөндөөлөрүн жана кат жөнөтүү чегин текшериңиз.";
-T.ru.adminRecoveryFailed="Не удалось запросить сброс пароля";
-T.ky.adminRecoveryFailed="Сырсөздү калыбына келтирүү өтүнүчү жөнөтүлгөн жок";
-T.ru.adminRateLimited="Слишком много попыток. Подождите и попробуйте позже.";
-T.ky.adminRateLimited="Аракеттер өтө көп болду. Бир аз күтүп, кайра аракет кылыңыз.";
-T.ru.adminRecoverySent="Если адрес зарегистрирован, письмо со ссылкой для восстановления отправлено.";
-T.ky.adminRecoverySent="Эгер email катталган болсо, калыбына келтирүү шилтемеси жөнөтүлдү.";
 T.ru.adminNewPassword="Новый пароль";T.ky.adminNewPassword="Жаңы сырсөз";
 T.ru.adminPasswordUpdated="Пароль обновлён. Теперь войдите с новым паролем.";T.ky.adminPasswordUpdated="Сырсөз жаңыртылды. Эми жаңы сырсөз менен кириңиз.";
 T.ru.adminBadLogin="Не удалось войти. Проверьте email и пароль.";T.ky.adminBadLogin="Кирүү мүмкүн болгон жок. Email менен сырсөздү текшериңиз.";
 T.ru.adminNotAllowed="Для этого аккаунта не включён доступ администратора.";T.ky.adminNotAllowed="Бул аккаунтка администратор укугу берилген эмес.";
 T.ru.adminNoConfig="Supabase ещё не настроен. Заполните URL и anon key в supabase-config.js, затем выполните supabase-setup.sql.";
 T.ky.adminNoConfig="Supabase азырынча жөндөлө элек. supabase-config.js файлына URL жана anon key жазып, андан соң supabase-setup.sql файлын аткарыңыз.";
-T.ru.adminEmailSent="Если адрес зарегистрирован, письмо со ссылкой для восстановления отправлено.";
-T.ky.adminEmailSent="Эгер бул email катталган болсо, калыбына келтирүү шилтемеси жөнөтүлдү.";
 T.ru.cloudLoadError="Supabase подключён, но таблицы сайта недоступны. Выполните supabase-setup.sql в SQL Editor проекта.";
 T.ky.cloudLoadError="Supabase туташты, бирок сайттын таблицалары жеткиликсиз. Долбоордун SQL Editor бөлүмүндө supabase-setup.sql файлын аткарыңыз.";
 T.ru.cloudSaveError="Не удалось сохранить данные в Supabase.";
@@ -63,13 +55,14 @@ T.ru.adminDescRu="Описание (русский)";T.ky.adminDescRu="Сүрө�
 T.ru.adminNameKy="Название (кыргызский)";T.ky.adminNameKy="Аталышы (кыргызча)";
 T.ru.adminDescKy="Описание (кыргызский)";T.ky.adminDescKy="Сүрөттөмө (кыргызча)";
 T.ru.adminPrice="Цена (сомы)";T.ky.adminPrice="Баасы (сом)";
-T.ru.adminEmoji="Значок, если нет фото";T.ky.adminEmoji="Сүрөт жок болсо белги";
-T.ru.adminPhoto="Фото товара (загрузить)";T.ky.adminPhoto="Товардын сүрөтүн жүктөө";
+T.ru.adminPhoto="Фото товара (необязательно)";T.ky.adminPhoto="Товардын сүрөтү (милдеттүү эмес)";
+T.ru.adminPhotoHint="Можно не загружать. Если добавляете фото: JPEG, PNG или WebP, не более 5 МБ.";T.ky.adminPhotoHint="Сүрөт жүктөбөсөңүз болот. Жүктөсөңүз: JPEG, PNG же WebP, 5 МБдан ашпасын.";
+T.ru.productNoPhoto="Фото товара не загружено";T.ky.productNoPhoto="Товардын сүрөтү жүктөлгөн эмес";
 T.ru.adminSave="Сохранить";T.ky.adminSave="Сактоо";
 T.ru.adminEdit="Изменить";T.ky.adminEdit="Өзгөртүү";
 T.ru.adminDelete="Удалить";T.ky.adminDelete="Өчүрүү";
 T.ru.adminCancel="Отмена";T.ky.adminCancel="Жокко чыгаруу";
-T.ru.adminLogout="Выйти из панели";T.ky.adminLogout="Панелден чыгуу";
+T.ru.adminLogout="Выйти из аккаунта";T.ky.adminLogout="Аккаунттан чыгуу";
 T.ru.adminSaved="Изменения сохранены в Supabase.";T.ky.adminSaved="Өзгөртүүлөр Supabase'ке сакталды.";
 T.ru.adminImageReady="Фото обработано. Сохраните товар, чтобы загрузить его в Supabase.";
 T.ky.adminImageReady="Сүрөт иштетилди. Supabase'ке жүктөө үчүн товарды сактаңыз.";
@@ -108,6 +101,8 @@ var P=[
 ];
 var supabaseClient=null,supabaseConfigured=false,cloudAdminUser=null;
 var defaultAdminPrices={boxing:[2000,4000],wrestling:[2000,4000],fitness:[2000,4000]};
+var defaultScheduleSlots={boxing:[],wrestling:[],fitness:[{weekday:1,hour:16},{weekday:2,hour:16},{weekday:5,hour:16}]};
+var scheduleSlots={boxing:[],wrestling:[],fitness:defaultScheduleSlots.fitness.map(function(slot){return {weekday:slot.weekday,hour:slot.hour}})};
 var adminPrices=defaultAdminPrices,adminSignedIn=false,editingProductId=null,pendingProductImage='',imageProcessing=false;
 function loadAdminData(){
 applyAdminPrices();
@@ -132,16 +127,45 @@ function productFromCloud(row){
 var image=row.image_path&&supabaseClient?supabaseClient.storage.from('product-images').getPublicUrl(row.image_path).data.publicUrl:'';
 return {id:row.id,e:row.emoji,p:Number(row.price),ru:[row.name_ru,row.description_ru],ky:[row.name_ky,row.description_ky],img:image,image_path:row.image_path,slug:row.slug};
 }
+function isProductImageUrl(url){return typeof url==='string'&&(/^(https?:\/\/|data:image\/(?:jpeg|png|webp);base64,)/i).test(url)}
+function productImageMarkup(url,alt,className){
+return isProductImageUrl(url)?`<img class="${className}" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}">`:'';
+}
+function validScheduleSlots(value){
+if(!Array.isArray(value))return [];
+return value.filter(function(slot){
+return slot&&Number.isInteger(slot.weekday)&&slot.weekday>=1&&slot.weekday<=7&&Number.isInteger(slot.hour)&&slot.hour>=8&&slot.hour<=22;
+}).map(function(slot){return {weekday:slot.weekday,hour:slot.hour}});
+}
+function renderScheduleTable(direction,admin){
+var days=T[lang].scheduleDays,slots=scheduleSlots[direction]||[];
+var header=`<thead><tr><th scope="col">${T[lang].scheduleTimeLabel}</th>${days.map(function(day){return `<th scope="col">${day}</th>`}).join('')}</tr></thead>`;
+var body=Array.from({length:15},function(_,index){
+var hour=index+8,label=String(hour).padStart(2,'0')+':00';
+var cells=days.map(function(day,dayIndex){
+var selected=slots.some(function(slot){return slot.weekday===dayIndex+1&&slot.hour===hour});
+if(admin)return `<td${selected?' class="is-training"':''}><input class="schedule-slot-input" type="checkbox" data-schedule-direction="${direction}" data-schedule-day="${dayIndex+1}" data-schedule-hour="${hour}" aria-label="${escapeHtml(day+' '+label)}"${selected?' checked':''}></td>`;
+return `<td${selected?' class="is-training"':''}>${selected?`<span class="schedule-training-label">${T[lang].scheduleTraining}</span>`:''}</td>`;
+}).join('');
+return `<tr><th scope="row"><time datetime="${label}">${label}</time></th>${cells}</tr>`;
+}).join('');
+return `${slots.length?'':`<p class="schedule-note">${T[lang].scheduleNone}</p>`}<div class="schedule-table-scroll"><table class="schedule-table${admin?' admin-schedule-table':''}">${header}<tbody>${body}</tbody></table></div>`;
+}
 async function loadCloudData(){
 if(!supabaseConfigured)return;
 var productsResult=await supabaseClient.from('products').select('id,slug,emoji,price,name_ru,description_ru,name_ky,description_ky,image_path').order('id');
 if(productsResult.error){console.error('Ошибка загрузки товаров:',productsResult.error);setCloudStatus(T[lang].cloudLoadError,true);return}
 var pricesResult=await supabaseClient.from('training_prices').select('direction,with_coach,price');
 if(pricesResult.error){console.error('Ошибка загрузки цен:',pricesResult.error);setCloudStatus(T[lang].cloudLoadError,true);return}
+var schedulesResult=await supabaseClient.from('training_schedules').select('direction,slots');
+if(schedulesResult.error){console.error('Ошибка загрузки расписания:',schedulesResult.error);setCloudStatus(T[lang].cloudLoadError,true);return}
 P=productsResult.data.map(productFromCloud);
 var prices={};
 pricesResult.data.forEach(function(row){if(!prices[row.direction])prices[row.direction]=[];prices[row.direction][row.with_coach?1:0]=Number(row.price)});
 if(['boxing','wrestling','fitness'].every(function(id){return Array.isArray(prices[id])&&prices[id].length===2&&prices[id].every(Number.isFinite)}))adminPrices=prices;
+var loadedSchedules={};
+schedulesResult.data.forEach(function(row){loadedSchedules[row.direction]=validScheduleSlots(row.slots)});
+['boxing','wrestling','fitness'].forEach(function(id){if(Object.prototype.hasOwnProperty.call(loadedSchedules,id))scheduleSlots[id]=loadedSchedules[id]});
 applyAdminPrices();
 setCloudStatus('',false);
 renderShop();
@@ -190,7 +214,7 @@ document.getElementById('owa').href='https://wa.me/996990909511?text='+encodeURI
 function renderShop(){
 var d=T[lang],inShop=location.hash==='#shop';
 document.getElementById('prods').innerHTML=P.map(function(x){var q=cart[x.id]||0,a=x[lang];
-var image=x.img&&x.img.indexOf('data:image/')===0?`<img class='prod-image' src='${escapeHtml(x.img)}' alt='${escapeHtml(a[0])}'>`:`<div class='em'>${escapeHtml(x.e||'🏋️')}</div>`;
+var image=productImageMarkup(x.img,a[0],'prod-image')||`<div class="prod-placeholder">${escapeHtml(T[lang].productNoPhoto)}</div>`;
 return `<div class='card prod'>${image}<h3>${escapeHtml(a[0])}</h3><p>${escapeHtml(a[1])}</p><div class='pr'>${fm(x.p)} ${d.cur}</div>`+(q?`<div class='qty'><button type='button' data-a='m' data-id='${x.id}'>−</button><b>${q}</b><button type='button' data-a='p' data-id='${x.id}'>+</button></div>`:`<button type='button' class='btn sm' data-a='p' data-id='${x.id}'>${d.add}</button>`)+`</div>`}).join('');
 var rows=P.filter(function(x){return cart[x.id]});
 document.getElementById('cartList').innerHTML=rows.length?rows.map(function(x){var q=cart[x.id];return `<div class='crow'><div><b>${x[lang][0]}</b><br><span class='mu'>${fm(x.p)} × ${q} = ${fm(x.p*q)} ${d.cur}</span></div><div class='qty'><button type='button' data-a='m' data-id='${x.id}'>−</button><b>${q}</b><button type='button' data-a='p' data-id='${x.id}'>+</button></div></div>`}).join('')+`<div class='crow'><span class='pr' style='color:var(--text)'>${d.total}</span><span class='pr'>${fm(tot())} ${d.cur}</span></div>`:`<p class='mu'>${d.empty}</p>`;
@@ -199,46 +223,48 @@ pill.hidden=!(inShop&&cnt()>0);
 pill.textContent=d.cartBtn+' · '+cnt()+' · '+fm(tot())+' '+d.cur;
 updOrder();
 }
+function renderAdminScheduleEditor(direction){
+return `<article class="card admin-schedule-editor"><h3>${escapeHtml(D[lang][direction].title)}</h3>${renderScheduleTable(direction,true)}<button class="btn sm" type="button" data-save-schedule="${direction}">${T[lang].adminScheduleSave}</button><p class="admin-status" id="schedule-status-${direction}" role="status"></p></article>`;
+}
 function renderAdmin(){
 var root=document.getElementById('admin-content'),d=T[lang];
 if(location.hash==='#password-reset'){
 root.innerHTML=`<h1>${d.adminNewPassword}</h1><form id="admin-password-form"><label>${d.adminNewPassword}<input name="password" type="password" required minlength="8" autocomplete="new-password"></label><button class="btn" type="submit">${d.adminSave}</button><p class="admin-status" id="admin-status" role="status"></p></form>`;
 return;
 }
-if(location.hash==='#forgot'){
-root.innerHTML=`<h1>${d.adminForgot}</h1><p class="sub">${d.adminRecoveryDemo}</p><p class="admin-warning">${d.adminRecoveryHint}</p><form id="admin-recovery-form"><label>${d.adminEmail}<input name="email" type="email" value="${escapeHtml(window.ALFA_SUPABASE_CONFIG&&window.ALFA_SUPABASE_CONFIG.adminEmail||'')}" required autocomplete="email"></label><button class="btn" type="submit">${d.adminSend}</button><p class="admin-status" id="admin-status" role="status"></p></form>`;
-return;
-}
 if(!adminSignedIn){
-root.innerHTML=`<h1>${d.adminTitle}</h1>${supabaseConfigured?'':`<p class="admin-warning">${d.adminNoConfig}</p>`}<form id="admin-login-form"><label>${d.adminLogin}<input name="username" value="${escapeHtml(window.ALFA_SUPABASE_CONFIG&&window.ALFA_SUPABASE_CONFIG.adminUsername||'')}" required autocomplete="username"></label><label>${d.adminPassword}<input name="password" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">${d.adminSignIn}</button><a href="#forgot">${d.adminForgot}</a><p class="admin-status" id="admin-status" role="status"></p></form>`;
+root.innerHTML=`<h1>${d.adminTitle}</h1>${supabaseConfigured?'':`<p class="admin-warning">${d.adminNoConfig}</p>`}<form id="admin-login-form"><label>${d.adminLogin}<input name="username" required autocomplete="username"></label><label>${d.adminPassword}<input name="password" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">${d.adminSignIn}</button><p class="admin-status" id="admin-status" role="status"></p></form>`;
 return;
 }
 var directions=['boxing','wrestling','fitness'];
 var priceFields=directions.map(function(id){return `<fieldset class="admin-price-row"><legend>${escapeHtml(D[lang][id].title)}</legend><label>${d.adminNoCoach}<input type="number" min="0" step="1" required data-price-dir="${id}" data-price-index="0" value="${adminPrices[id][0]}"></label><label>${d.adminWithCoach}<input type="number" min="0" step="1" required data-price-dir="${id}" data-price-index="1" value="${adminPrices[id][1]}"></label></fieldset>`}).join('');
-var productRows=P.map(function(product){var image=product.img&&product.img.indexOf('data:image/')===0?`<img class="admin-product-image" src="${escapeHtml(product.img)}" alt="">`:'';return `<article class="card admin-product-row">${image}<div><b>${escapeHtml(product[lang][0])}</b><br><span class="mu">${fm(product.p)} ${d.cur}</span></div><div class="admin-actions"><button class="btn ghost sm" type="button" data-edit-product="${product.id}">${d.adminEdit}</button><button class="btn ghost sm" type="button" data-delete-product="${product.id}">${d.adminDelete}</button></div></article>`}).join('');
-root.innerHTML=`<div class="admin-heading"><h1>${d.adminTitle}</h1><button class="btn ghost sm" id="admin-logout" type="button">${d.adminLogout}</button></div><form id="admin-prices-form"><h2>${d.adminPrices}</h2>${priceFields}<button class="btn" type="submit">${d.adminSave}</button><p class="admin-status" id="price-status" role="status"></p></form><section class="admin-products"><h2>${d.adminProducts}</h2><form id="admin-product-form"><input type="hidden" name="id"><label>${d.adminNameRu}<input name="nameRu" required></label><label>${d.adminDescRu}<input name="descRu" required></label><label>${d.adminNameKy}<input name="nameKy" required></label><label>${d.adminDescKy}<input name="descKy" required></label><label>${d.adminPrice}<input name="price" type="number" min="0" step="1" required></label><label>${d.adminEmoji}<input name="emoji" maxlength="8" value="🏋️"></label><label>${d.adminPhoto}<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>Фото загружается в хранилище Supabase.</small></label><button class="btn" type="submit">${d.adminSave}</button><button class="btn ghost sm" id="admin-cancel-edit" type="button" hidden>${d.adminCancel}</button><p class="admin-status" id="product-status" role="status"></p></form><div class="admin-product-list">${productRows}</div></section>`;
+var scheduleEditors=directions.map(renderAdminScheduleEditor).join('');
+var productRows=P.map(function(product){var image=productImageMarkup(product.img,product[lang][0],'admin-product-image')||`<div class="admin-product-placeholder">${escapeHtml(T[lang].productNoPhoto)}</div>`;return `<article class="card admin-product-row">${image}<div><b>${escapeHtml(product[lang][0])}</b><br><span class="mu">${fm(product.p)} ${d.cur}</span></div><div class="admin-actions"><button class="btn ghost sm" type="button" data-edit-product="${product.id}">${d.adminEdit}</button><button class="btn ghost sm" type="button" data-delete-product="${product.id}">${d.adminDelete}</button></div></article>`}).join('');
+root.innerHTML=`<div class="admin-heading"><h1>${d.adminTitle}</h1><button class="btn ghost sm" id="admin-logout" type="button">${d.adminLogout}</button></div><form id="admin-prices-form"><h2>${d.adminPrices}</h2>${priceFields}<button class="btn" type="submit">${d.adminSave}</button><p class="admin-status" id="price-status" role="status"></p></form><section class="admin-schedules"><h2>${d.adminSchedule}</h2><p class="sub">${d.adminScheduleHelp}</p><div class="admin-schedule-list">${scheduleEditors}</div></section><section class="admin-products"><h2>${d.adminProducts}</h2><form id="admin-product-form"><input type="hidden" name="id"><label>${d.adminNameRu}<input name="nameRu" required></label><label>${d.adminDescRu}<input name="descRu" required></label><label>${d.adminNameKy}<input name="nameKy" required></label><label>${d.adminDescKy}<input name="descKy" required></label><label>${d.adminPrice}<input name="price" type="number" min="0" step="1" required></label><label>${d.adminPhoto}<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>${d.adminPhotoHint}</small></label><div class="admin-photo-preview" id="product-photo-preview" aria-live="polite">${escapeHtml(T[lang].productNoPhoto)}</div><button class="btn" type="submit">${d.adminSave}</button><button class="btn ghost sm" id="admin-cancel-edit" type="button" hidden>${d.adminCancel}</button><p class="admin-status" id="product-status" role="status"></p></form><div class="admin-product-list">${productRows}</div></section>`;
 }
 function setAdminStatus(id,message,error){
 var node=document.getElementById(id);
 if(node){node.textContent=message;node.className='admin-status'+(error?' is-error':'')}
 }
-function getRecoveryErrorMessage(error){
-if(window.location.protocol==='file:'||window.location.origin==='null')return T[lang].adminHttpRequired;
-if(error&&error.status===429)return T[lang].adminRateLimited;
-var message=error&&error.message?String(error.message):'';
-if(/email|smtp|recovery/i.test(message)||error&&error.status>=500)return T[lang].adminEmailServiceError;
-return T[lang].adminRecoveryFailed+(message?': '+message:'');
-}
 function editAdminProduct(id){
 var product=P.find(function(item){return item.id===Number(id)}),form=document.getElementById('admin-product-form');
 if(!product||!form)return;
 editingProductId=product.id;pendingProductImage='';
-form.elements.id.value=product.id;form.elements.nameRu.value=product.ru[0];form.elements.descRu.value=product.ru[1];form.elements.nameKy.value=product.ky[0];form.elements.descKy.value=product.ky[1];form.elements.price.value=product.p;form.elements.emoji.value=product.e||'🏋️';
+form.elements.id.value=product.id;form.elements.nameRu.value=product.ru[0];form.elements.descRu.value=product.ru[1];form.elements.nameKy.value=product.ky[0];form.elements.descKy.value=product.ky[1];form.elements.price.value=product.p;
+setProductPhotoPreview(product.img);
 document.getElementById('admin-cancel-edit').hidden=false;
 form.scrollIntoView({behavior:'smooth',block:'center'});
 }
+function setProductPhotoPreview(imageUrl){
+var preview=document.getElementById('product-photo-preview');
+if(!preview)return;
+preview.innerHTML=productImageMarkup(imageUrl,T[lang].adminPhoto,'admin-photo-preview-image')||escapeHtml(T[lang].productNoPhoto);
+}
 function processAdminImage(file){
 if(!file)return;
+pendingProductImage='';
+var existing=editingProductId?P.find(function(item){return item.id===editingProductId}):null;
+setProductPhotoPreview(existing?existing.img:'');
 if(file.size>5*1024*1024){setAdminStatus('product-status',T[lang].adminImageLimit,true);return}
 imageProcessing=true;
 var reader=new FileReader();
@@ -256,6 +282,8 @@ canvas.toBlob(function(blob){
 imageProcessing=false;
 if(!blob){setAdminStatus('product-status',T[lang].adminImageError,true);return}
 pendingProductImage=blob;
+try{setProductPhotoPreview(canvas.toDataURL('image/jpeg',0.78))}
+catch(error){console.error('Не удалось показать предпросмотр фото товара:',error);setAdminStatus('product-status',T[lang].adminImageError,true);return}
 setAdminStatus('product-status',T[lang].adminImageReady,false);
 },'image/jpeg',0.78);
 };
@@ -266,7 +294,8 @@ reader.readAsDataURL(file);
 function renderDirection(id){
 var d=D[lang][id];
 if(!d)return;
-document.getElementById('direction-content').innerHTML=`<div class="direction-hero"><img class="direction-hero-image" src="${directionImages[id]}" alt="${d.title}"><h1>${d.title}</h1><p>${d.intro}</p></div><div class="grid direction-details"><article class="card"><h3>${d.learnTitle}</h3><ul>${d.learn.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.forTitle}</h3><ul>${d.forList.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.resultTitle}</h3><p>${d.result}</p></article></div>${d.prices?`<section class="direction-prices"><h2>${d.priceTitle}</h2><div class="grid">${d.prices.map(function(price,index){return `<a class="card direction-price-card" href="#contact" data-enroll="${id}" data-plan="${index}"><h3>${price[0]}</h3><p class="direction-price">${price[1]}</p><span class="direction-price-cta">${T[lang].priceCta}</span></a>`}).join('')}</div></section>`:''}<div class="btns"><a class="btn" href="#contact" data-enroll="${id}">${T[lang].cta1}</a><a class="btn ghost" href="#sports">${T[lang].nav4}</a></div>`;
+var schedule=renderScheduleTable(id,false);
+document.getElementById('direction-content').innerHTML=`<div class="direction-hero"><img class="direction-hero-image" src="${directionImages[id]}" alt="${d.title}"><h1>${d.title}</h1><p>${d.intro}</p></div><div class="grid direction-details"><article class="card"><h3>${d.learnTitle}</h3><ul>${d.learn.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.forTitle}</h3><ul>${d.forList.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.resultTitle}</h3><p>${d.result}</p></article></div><section class="direction-schedule"><h2>${T[lang].scheduleTitle}</h2>${schedule}</section>${d.prices?`<section class="direction-prices"><h2>${d.priceTitle}</h2><div class="grid">${d.prices.map(function(price,index){return `<a class="card direction-price-card" href="#contact" data-enroll="${id}" data-plan="${index}"><h3>${price[0]}</h3><p class="direction-price">${price[1]}</p><span class="direction-price-cta">${T[lang].priceCta}</span></a>`}).join('')}</div></section>`:''}<div class="btns"><a class="btn" href="#contact" data-enroll="${id}">${T[lang].cta1}</a><a class="btn ghost" href="#sports">${T[lang].nav4}</a></div>`;
 }
 var lang="ru",selectedPrice=null;
 loadAdminData();
@@ -282,7 +311,7 @@ updateWa();
 renderShop();
 var directionId=location.hash.slice(1);
 if(Object.prototype.hasOwnProperty.call(D.ru,directionId))renderDirection(directionId);
-if(location.hash==='#admin'||location.hash==='#forgot')renderAdmin();
+if(location.hash==='#admin'||location.hash==='#password-reset')renderAdmin();
 }
 var saved="ru";try{saved=localStorage.getItem("alfa-lang")||"ru"}catch(e){}
 document.getElementById("b-ru").onclick=function(){setLang("ru")};
@@ -313,24 +342,14 @@ if(formId==='admin-login-form'){
 e.preventDefault();
 if(!supabaseConfigured){setAdminStatus('admin-status',T[lang].adminNoConfig,true);return}
 var config=window.ALFA_SUPABASE_CONFIG,username=form.elements.username.value.trim();
-if(!config.adminUsername||!config.adminEmail||username!==config.adminUsername){setAdminStatus('admin-status',T[lang].adminBadLogin,true);return}
-supabaseClient.auth.signInWithPassword({email:config.adminEmail,password:form.elements.password.value}).then(async function(result){
+var login=Array.isArray(config.adminLogins)?config.adminLogins.find(function(entry){return entry&&typeof entry.username==='string'&&entry.username.toLowerCase()===username.toLowerCase()}):null;
+if(!login||typeof login.email!=='string'){setAdminStatus('admin-status',T[lang].adminBadLogin,true);return}
+supabaseClient.auth.signInWithPassword({email:login.email,password:form.elements.password.value}).then(async function(result){
 if(result.error){console.error('Ошибка входа администратора:',result.error);setAdminStatus('admin-status',T[lang].adminBadLogin,true);return}
 var allowed=await verifyCloudAdmin(result.data.user);
 if(!allowed){await supabaseClient.auth.signOut();setAdminStatus('admin-status',T[lang].adminNotAllowed,true);return}
 setCloudStatus('',false);await loadCloudData();renderAdmin();
 }).catch(function(error){console.error('Ошибка входа администратора:',error);setAdminStatus('admin-status',T[lang].adminBadLogin,true)});
-return;
-}
-if(formId==='admin-recovery-form'){
-e.preventDefault();
-if(!supabaseConfigured){setAdminStatus('admin-status',T[lang].adminNoConfig,true);return}
-if(window.location.protocol==='file:'||window.location.origin==='null'){setAdminStatus('admin-status',T[lang].adminHttpRequired,true);return}
-var redirectTo=window.location.origin==='null'?undefined:window.location.origin+window.location.pathname+'#password-reset';
-supabaseClient.auth.resetPasswordForEmail(form.elements.email.value.trim(),redirectTo?{redirectTo:redirectTo}:undefined).then(function(result){
-if(result.error){console.error('Ошибка восстановления пароля:',result.error);setAdminStatus('admin-status',getRecoveryErrorMessage(result.error),true);return}
-setAdminStatus('admin-status',T[lang].adminRecoverySent,false);
-}).catch(function(error){console.error('Ошибка восстановления пароля:',error);setAdminStatus('admin-status',getRecoveryErrorMessage(error),true)});
 return;
 }
 if(formId==='admin-password-form'){
@@ -357,9 +376,10 @@ return;
 if(formId==='admin-product-form'){
 e.preventDefault();var values=form.elements,nameRu=values.nameRu.value.trim(),descRu=values.descRu.value.trim(),nameKy=values.nameKy.value.trim(),descKy=values.descKy.value.trim(),price=Number(values.price.value);
 if(imageProcessing){setAdminStatus('product-status',T[lang].adminImageError,true);return}
+var existingProduct=P.find(function(item){return item.id===editingProductId});
 if(!nameRu||!descRu||!nameKy||!descKy||!Number.isFinite(price)||price<0){setAdminStatus('product-status',T[lang].cloudSaveError,true);return}
 (async function(){
-var existing=P.find(function(item){return item.id===editingProductId}),imagePath=existing?existing.image_path:null;
+var existing=existingProduct,imagePath=existing?existing.image_path:null;
 var uploadedImagePath=null;
 if(pendingProductImage instanceof Blob){
 try{
@@ -369,7 +389,7 @@ if(upload.error)throw upload.error;
 imagePath=newPath;uploadedImagePath=newPath;
 }catch(error){console.error('Ошибка загрузки фото товара:',error);setAdminStatus('product-status',T[lang].cloudSaveError,true);return}
 }
-var row={emoji:values.emoji.value.trim()||'🏋️',price:price,name_ru:nameRu,description_ru:descRu,name_ky:nameKy,description_ky:descKy,image_path:imagePath};
+var row={emoji:'',price:price,name_ru:nameRu,description_ru:descRu,name_ky:nameKy,description_ky:descKy,image_path:imagePath};
 var result=editingProductId
 ?await supabaseClient.from('products').update(row).eq('id',editingProductId).select('id,slug,emoji,price,name_ru,description_ru,name_ky,description_ky,image_path').single()
 :await supabaseClient.from('products').insert(row).select('id,slug,emoji,price,name_ru,description_ru,name_ky,description_ky,image_path').single();
@@ -389,6 +409,21 @@ editingProductId=null;pendingProductImage='';renderAdmin();renderShop();setAdmin
 }
 });
 document.addEventListener('click',function(e){
+var saveSchedule=e.target.closest('[data-save-schedule]');
+if(saveSchedule){
+var direction=saveSchedule.getAttribute('data-save-schedule'),editor=saveSchedule.closest('.admin-schedule-editor');
+if(!editor)return;
+var slots=Array.from(editor.querySelectorAll('.schedule-slot-input:checked')).map(function(input){return {weekday:Number(input.getAttribute('data-schedule-day')),hour:Number(input.getAttribute('data-schedule-hour'))}});
+if(!['boxing','wrestling','fitness'].includes(direction)||validScheduleSlots(slots).length!==slots.length){setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true);return}
+saveSchedule.disabled=true;
+supabaseClient.from('training_schedules').upsert({direction:direction,slots:slots},{onConflict:'direction'}).then(function(result){
+if(result.error){console.error('Ошибка сохранения расписания:',result.error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true);return}
+scheduleSlots[direction]=slots;
+if(location.hash==='#'+direction)renderDirection(direction);
+setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaved,false);
+}).catch(function(error){console.error('Ошибка сохранения расписания:',error);setAdminStatus('schedule-status-'+direction,T[lang].cloudSaveError,true)}).finally(function(){saveSchedule.disabled=false});
+return;
+}
 var edit=e.target.closest('[data-edit-product]');
 if(edit){editAdminProduct(edit.getAttribute('data-edit-product'));return}
 var remove=e.target.closest('[data-delete-product]');
@@ -407,9 +442,9 @@ P=P.filter(function(item){return item.id!==id});delete cart[id];save();renderAdm
 return;
 }
 if(e.target.id==='admin-cancel-edit'){editingProductId=null;pendingProductImage='';renderAdmin();return}
-if(e.target.id==='admin-logout'){supabaseClient.auth.signOut().then(function(result){if(result.error){console.error('Ошибка выхода из панели:',result.error);setCloudStatus(T[lang].cloudSaveError,true);return}adminSignedIn=false;cloudAdminUser=null;editingProductId=null;location.hash='#admin'}).catch(function(error){console.error('Ошибка выхода из панели:',error);setCloudStatus(T[lang].cloudSaveError,true)})}
+if(e.target.closest('#admin-logout')){supabaseClient.auth.signOut().then(function(result){if(result.error){console.error('Ошибка выхода из панели:',result.error);setCloudStatus(T[lang].cloudSaveError,true);return}adminSignedIn=false;cloudAdminUser=null;editingProductId=null;location.hash='#admin'}).catch(function(error){console.error('Ошибка выхода из панели:',error);setCloudStatus(T[lang].cloudSaveError,true)})}
 });
-function route(){var h=location.hash,sh=h==='#shop',id=h.slice(1),isDirection=Object.prototype.hasOwnProperty.call(D.ru,id),isAdmin=['#admin','#forgot','#password-reset'].indexOf(h)!==-1;document.querySelector('main').hidden=sh||isDirection||isAdmin;document.getElementById('shop-view').hidden=!sh;document.getElementById('direction-view').hidden=!isDirection;document.getElementById('admin-view').hidden=!isAdmin;if(isDirection)renderDirection(id);if(isAdmin)renderAdmin();var el=(!sh&&!isDirection&&!isAdmin&&h.length>1)?document.getElementById(id):null;if(el)el.scrollIntoView();else window.scrollTo(0,0);renderShop()}
+function route(){var h=location.hash,sh=h==='#shop',id=h.slice(1),isDirection=Object.prototype.hasOwnProperty.call(D.ru,id),isAdmin=['#admin','#password-reset'].indexOf(h)!==-1;document.querySelector('main').hidden=sh||isDirection||isAdmin;document.getElementById('shop-view').hidden=!sh;document.getElementById('direction-view').hidden=!isDirection;document.getElementById('admin-view').hidden=!isAdmin;if(isDirection)renderDirection(id);if(isAdmin)renderAdmin();var el=(!sh&&!isDirection&&!isAdmin&&h.length>1)?document.getElementById(id):null;if(el)el.scrollIntoView();else window.scrollTo(0,0);renderShop()}
 window.addEventListener('hashchange',route);
 route();
 initializeSupabase().catch(function(error){console.error('Не удалось подключиться к Supabase:',error);setCloudStatus(T[lang].cloudLoadError,true)});
