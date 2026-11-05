@@ -109,9 +109,9 @@ fitness:{icon:"🏋️",title:"Фитнес жана күч машыгуулар
 }
 };
 var directionImages={
-boxing:"Kiryan%20Varo%20Adislav.jpg",
-wrestling:"pexels-celio-junior-106557696-38178268.jpg",
-fitness:"Без%20названия%20(1).jpg"
+boxing:"png/Kiryan%20Varo%20Adislav.jpg",
+wrestling:"png/pexels-celio-junior-106557696-38178268.jpg",
+fitness:"png/Без%20названия%20(1).jpg"
 };
 var P=[
 {id:1,e:'🥛',p:3500,ru:['Протеин, 2 кг','Помогает набирать мышечную массу и восстанавливаться.'],ky:['Протеин, 2 кг','Булчуң өстүрүүгө жана калыбына келүүгө жардам берет.']},
