@@ -178,9 +178,11 @@ section h2{font-size:clamp(30px,8vw,40px)}
 .crow>.pr{margin-left:auto}
 }
 .week-schedule-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
-.week-day-card{min-width:0;min-height:230px;padding:20px 14px;border:1px solid #252525;border-radius:4px;background:#1d1d1d;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.week-day-card{min-width:0;min-height:230px;padding:20px 14px;border:1px solid;border-radius:4px;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.week-day-card.has-training{border-color:#1f7a45;background:#1f7a45}
+.week-day-card.no-training{border-color:#b4232f;background:#b4232f}
 .week-day-card h3{display:flex;flex-direction:column;gap:2px;margin:0 0 18px;font-family:Inter,system-ui,Arial,sans-serif;font-size:30px;font-weight:500;line-height:1.15;text-transform:uppercase;letter-spacing:0}
-.week-day-full{color:#aaa;font-size:12px;font-weight:500;letter-spacing:.08em}
+.week-day-full{color:rgba(255,255,255,.82);font-size:12px;font-weight:500;letter-spacing:.08em}
 .week-day-classes{display:grid;gap:0}
 .week-class{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px;padding:9px 0}
 .week-class-info{min-width:0}

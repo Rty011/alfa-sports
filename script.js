@@ -200,7 +200,7 @@ var sessions=lessons.length?lessons.map(function(slot){
 var title=lang==='ky'?(slot.title_ky||slot.title_ru||D[lang][direction].title):(slot.title_ru||slot.title_ky||D[lang][direction].title);
 return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(formatScheduleTime(slot))}">${escapeHtml(formatScheduleTime(slot))}</time> — ${escapeHtml(title)}</span></div>${slot.hall?`<span class="week-class-hall">${escapeHtml(slot.hall)}</span>`:''}</div>`;
 }).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
-return `<article class="week-day-card"><h3><span>${T[lang].scheduleDayShort[dayIndex]}</span><span class="week-day-full">${escapeHtml(day)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
+return `<article class="week-day-card ${lessons.length?'has-training':'no-training'}"><h3><span>${T[lang].scheduleDayShort[dayIndex]}</span><span class="week-day-full">${escapeHtml(day)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
 }).join('')}</div>`;
 }
 async function loadCloudData(){
