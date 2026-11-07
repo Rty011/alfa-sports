@@ -37,8 +37,8 @@ T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күн
 T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
 T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
 T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
-T.ru.adminScheduleHelp="Выберите день и нажмите «Добавить занятие». Заполните время и названия на русском и кыргызском; зал указывать необязательно. Затем нажмите «Сохранить расписание» — изменения появятся на странице направления.";
-T.ky.adminScheduleHelp="Күндү тандап, «Машыгуу кошуу» баскычын басыңыз. Убакытты жана орусча, кыргызча аталыштарды толтуруңуз; залды көрсөтүү милдеттүү эмес. Андан кийин «Тартипти сактоо» баскычын басыңыз.";
+T.ru.adminScheduleHelp="В борьбе можно настроить 1-ю и 2-ю смену отдельно для каждого дня. Укажите время и названия на русском и кыргызском; зал заполнять необязательно. Пустая 2-я смена не появится в расписании. Нажмите «Сохранить расписание», чтобы опубликовать изменения.";
+T.ky.adminScheduleHelp="Күрөштө ар бир күн үчүн 1- жана 2-кезектин убактысын өзүнчө коюңуз. Орусча жана кыргызча аталыштарды жазыңыз; залды көрсөтүү милдеттүү эмес. Бош 2-кезек тартипте көрсөтүлбөйт. Өзгөртүүлөрдү жарыялоо үчүн сактаңыз.";
 T.ru.adminScheduleSave="Сохранить расписание";T.ky.adminScheduleSave="Машыгуу тартибин сактоо";
 T.ru.adminScheduleSaved="Расписание сохранено и обновлено на странице направления.";T.ky.adminScheduleSaved="Машыгуу тартиби сакталды жана багыттын бетинде жаңыртылды.";
 T.ru.adminScheduleTitleRu="Название на русском";T.ky.adminScheduleTitleRu="Орусча аталышы";
@@ -48,6 +48,8 @@ T.ru.adminScheduleHall="Зал (необязательно)";T.ky.adminScheduleH
 T.ru.adminScheduleNoLessons="Занятий нет";T.ky.adminScheduleNoLessons="Машыгуу жок";
 T.ru.adminScheduleHasLessons="Есть занятия";T.ky.adminScheduleHasLessons="Машыгуу бар";
 T.ru.adminScheduleEmptyDay="В этот день пока нет занятий. Добавьте тренировку кнопкой ниже.";T.ky.adminScheduleEmptyDay="Бул күнү азырынча машыгуу жок. Төмөнкү баскыч менен машыгууну кошуңуз.";
+T.ru.adminScheduleShiftOne="1-я смена";T.ky.adminScheduleShiftOne="1-кезек";
+T.ru.adminScheduleShiftTwo="2-я смена";T.ky.adminScheduleShiftTwo="2-кезек";
 T.ru.adminScheduleRequired="Укажите корректные день, время и название тренировки на обоих языках.";T.ky.adminScheduleRequired="Күндү, убакытты жана машыгуунун аталышын эки тилде туура жазыңыз.";
 T.ru.adminScheduleLoadError="Не удалось загрузить расписание. Проверьте таблицу training_schedules в Supabase.";T.ky.adminScheduleLoadError="Машыгуу тартибин жүктөө мүмкүн болгон жок. Supabase'теги training_schedules таблицасын текшериңиз.";
 T.ru.adminScheduleSaving="Сохраняем расписание…";T.ky.adminScheduleSaving="Машыгуу тартиби сакталууда…";
@@ -179,15 +181,19 @@ function formatScheduleTime(slot){
 return typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour));
 }
 function scheduleSort(a,b){return formatScheduleTime(a).localeCompare(formatScheduleTime(b))}
-function buildAdminScheduleEntry(direction,dayName,slot){
-var timeValue=slot?formatScheduleTime(slot):'16:00';
+function buildAdminScheduleEntry(direction,dayName,slot,shift){
+var optionalShift=shift===2&&!slot;
+var shiftLabel=shift===1?T[lang].adminScheduleShiftOne:shift===2?T[lang].adminScheduleShiftTwo:'';
+var timeValue=slot?formatScheduleTime(slot):optionalShift?'':'16:00';
 var titleRu=slot&&(slot.title_ru||slot.title)||D.ru[direction].title;
 var titleKy=slot&&(slot.title_ky||slot.title)||D.ky[direction].title;
 var hallValue=slot&&slot.hall||'';
-return `<div class="admin-schedule-entry"><label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
+return `<div class="admin-schedule-entry"${optionalShift?' data-optional-shift="true"':''}>${shiftLabel?`<strong class="admin-schedule-shift-label">${shiftLabel}</strong>`:''}<label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}"${optionalShift?'':' required'} aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
 }
 function updateAdminScheduleDay(day){
-var hasLessons=day.querySelectorAll('.admin-schedule-entry').length>0;
+var hasLessons=Array.from(day.querySelectorAll('.admin-schedule-entry')).some(function(entry){
+return entry.getAttribute('data-optional-shift')!=='true'||Boolean(entry.querySelector('.schedule-slot-time').value);
+});
 var status=day.querySelector('.admin-schedule-day-state');
 var empty=day.querySelector('.admin-schedule-empty');
 if(status){status.textContent=hasLessons?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons;status.classList.toggle('has-lessons',hasLessons)}
@@ -197,7 +203,8 @@ function buildAdminScheduleEditor(direction,slots){
 var dayNames=T[lang].scheduleDays;
 var entries=dayNames.map(function(dayName,dayIndex){
 var daySlots=(slots||[]).filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
-var rows=daySlots.map(function(slot){return buildAdminScheduleEntry(direction,dayName,slot)}).join('');
+var rows=daySlots.map(function(slot,slotIndex){var shift=direction==='wrestling'?slotIndex+1:0;return buildAdminScheduleEntry(direction,dayName,slot,shift)}).join('');
+if(direction==='wrestling'&&daySlots.length<2)rows+=buildAdminScheduleEntry(direction,dayName,null,2);
 return `<div class="admin-schedule-day" data-weekday="${dayIndex+1}"><div class="admin-schedule-day-heading"><h4>${escapeHtml(dayName)}</h4><span class="admin-schedule-day-state${daySlots.length?' has-lessons':''}">${daySlots.length?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons}</span></div><p class="admin-schedule-empty"${daySlots.length?' hidden':''}>${T[lang].adminScheduleEmptyDay}</p>${rows}<button class="btn ghost sm" type="button" data-add-schedule-slot>${T[lang].scheduleAddLesson}</button></div>`;
 }).join('');
 return `<div class="admin-schedule-days" data-schedule-editor="${direction}">${entries}</div>`;
@@ -474,6 +481,10 @@ editingProductId=null;pendingProductImage='';renderAdmin();renderShop();setAdmin
 })().catch(function(error){console.error('Ошибка сохранения товара:',error);setAdminStatus('product-status',T[lang].cloudSaveError,true)});
 }
 });
+document.addEventListener('input',function(e){
+var shiftTime=e.target.closest('[data-optional-shift] .schedule-slot-time');
+if(shiftTime)updateAdminScheduleDay(shiftTime.closest('.admin-schedule-day'));
+});
 document.addEventListener('click',function(e){
 var addSchedule=e.target.closest('[data-add-schedule-slot]');
 if(addSchedule){
@@ -494,10 +505,11 @@ day.querySelectorAll('.admin-schedule-entry').forEach(function(entry){
 var time=entry.querySelector('.schedule-slot-time').value;
 var titleRu=entry.querySelector('.schedule-slot-title-ru').value.trim();
 var titleKy=entry.querySelector('.schedule-slot-title-ky').value.trim();
+var hall=entry.querySelector('.schedule-slot-hall').value.trim();
+if(entry.getAttribute('data-optional-shift')==='true'&&!time&&titleRu===D.ru[direction].title&&titleKy===D.ky[direction].title&&!hall)return;
 var hour=Number(time.slice(0,2));
 if(!Number.isInteger(weekday)||weekday<1||weekday>7||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||hour<8||hour>22||!titleRu||!titleKy){invalid=true;return}
 var slot={weekday:weekday,time:time,title_ru:titleRu,title_ky:titleKy};
-var hall=entry.querySelector('.schedule-slot-hall').value.trim();
 if(hall)slot.hall=hall;
 nextSlots.push(slot);
 });

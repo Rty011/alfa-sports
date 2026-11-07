@@ -119,6 +119,7 @@ nav{grid-area:nav}
 .admin-schedule-day-state.has-lessons{background:#e8f5ec;color:#24713d}
 .admin-schedule-empty{margin:0;color:var(--muted);font-size:13px}
 .admin-schedule-entry{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end;padding:12px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.admin-schedule-shift-label{grid-column:1/-1;color:var(--red);font-size:13px}
 .admin-schedule-entry label{min-width:0;font-size:12px}
 .admin-schedule-entry input{width:100%}
 .admin-schedule-entry .btn{grid-column:1/-1;justify-self:end}
