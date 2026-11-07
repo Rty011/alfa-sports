@@ -110,17 +110,21 @@ nav{grid-area:nav}
 .admin-schedules>h2{margin-bottom:8px}
 .admin-schedule-list{display:grid;gap:18px}
 .admin-schedule-editor{min-width:0}
-.admin-schedule-editor h3{margin:0 0 14px}
+.admin-schedule-editor>h3{margin:0 0 14px}
 .admin-schedule-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .admin-schedule-day{display:flex;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.admin-schedule-day-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .admin-schedule-day h4{font-size:16px;margin:0}
-.admin-schedule-entry{display:grid;grid-template-columns:100px minmax(0,1fr) minmax(0,1fr) 140px auto;gap:8px;align-items:center;padding:8px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.admin-schedule-day-state{flex:none;padding:3px 9px;border-radius:999px;background:#fff0f0;color:#a61e28;font-size:12px;font-weight:600}
+.admin-schedule-day-state.has-lessons{background:#e8f5ec;color:#24713d}
+.admin-schedule-empty{margin:0;color:var(--muted);font-size:13px}
+.admin-schedule-entry{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end;padding:12px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.admin-schedule-entry label{min-width:0;font-size:12px}
 .admin-schedule-entry input{width:100%}
-.schedule-slot-time{min-width:74px}
-.schedule-slot-title{min-width:0}
-.schedule-slot-hall{min-width:0}
+.admin-schedule-entry .btn{grid-column:1/-1;justify-self:end}
 .admin-schedule-editor .schedule-note{margin-bottom:12px;padding:10px 14px;font-size:14px}
-@media(max-width:900px){.admin-schedule-days{grid-template-columns:1fr}.admin-schedule-entry{grid-template-columns:1fr 1fr;}.schedule-slot-time,.schedule-slot-hall{grid-column:span 1}.admin-schedule-entry .btn{grid-column:span 2}}.admin-products>h2{margin-bottom:18px}
+@media(max-width:900px){.admin-schedule-days{grid-template-columns:1fr}.admin-schedule-entry{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.admin-products>h2{margin-bottom:18px}
 .admin-product-list{display:grid;gap:12px}
 .admin-product-row{display:flex;align-items:center;gap:16px}
 .admin-product-row>div:nth-child(2){flex:1}
