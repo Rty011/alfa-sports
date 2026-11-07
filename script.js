@@ -36,6 +36,9 @@ T.ky.scheduleDayShort=["ДШ","ШШ","ШР","БШ","ЖМ","ИШ","ЖК"];
 T.ru.scheduleDayOff="Выходной";T.ky.scheduleDayOff="Эс алуу күнү";
 T.ru.scheduleTimeLabel="Время";T.ky.scheduleTimeLabel="Убакыт";
 T.ru.scheduleTraining="Тренировка";T.ky.scheduleTraining="Машыгуу";
+T.ru.scheduleShiftOne="1-я смена";T.ky.scheduleShiftOne="1-кезек";
+T.ru.scheduleShiftTwo="2-я смена";T.ky.scheduleShiftTwo="2-кезек";
+T.ru.scheduleChooseShift="Выберите смену:";T.ky.scheduleChooseShift="Кезекти тандаңыз:";
 T.ru.adminSchedule="Расписание тренировок";T.ky.adminSchedule="Машыгуу тартиби";
 T.ru.adminScheduleHelp="В борьбе можно настроить 1-ю и 2-ю смену отдельно для каждого дня. Укажите время и названия на русском и кыргызском; зал заполнять необязательно. Пустая 2-я смена не появится в расписании. Нажмите «Сохранить расписание», чтобы опубликовать изменения.";
 T.ky.adminScheduleHelp="Күрөштө ар бир күн үчүн 1- жана 2-кезектин убактысын өзүнчө коюңуз. Орусча жана кыргызча аталыштарды жазыңыз; залды көрсөтүү милдеттүү эмес. Бош 2-кезек тартипте көрсөтүлбөйт. Өзгөртүүлөрдү жарыялоо үчүн сактаңыз.";
@@ -167,6 +170,7 @@ return Number.isInteger(slot.weekday)&&slot.weekday>=1&&slot.weekday<=7&&/^(?:0[
 }).map(function(slot){
 var time=typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour));
 var entry={weekday:slot.weekday,time:time};
+if(slot.shift===1||slot.shift===2)entry.shift=slot.shift;
 if(typeof slot.title_ru==='string'&&slot.title_ru.trim())entry.title_ru=slot.title_ru.trim();
 if(typeof slot.title_ky==='string'&&slot.title_ky.trim())entry.title_ky=slot.title_ky.trim();
 if(typeof slot.title==='string'&&slot.title.trim())entry.title_ru=slot.title.trim();
@@ -181,14 +185,15 @@ function formatScheduleTime(slot){
 return typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour));
 }
 function scheduleSort(a,b){return formatScheduleTime(a).localeCompare(formatScheduleTime(b))}
+function wrestlingShift(slot,index){return slot.shift===1||slot.shift===2?slot.shift:index+1}
 function buildAdminScheduleEntry(direction,dayName,slot,shift){
-var optionalShift=shift===2&&!slot;
+var optionalShift=Boolean(shift&&!slot);
 var shiftLabel=shift===1?T[lang].adminScheduleShiftOne:shift===2?T[lang].adminScheduleShiftTwo:'';
 var timeValue=slot?formatScheduleTime(slot):optionalShift?'':'16:00';
 var titleRu=slot&&(slot.title_ru||slot.title)||D.ru[direction].title;
 var titleKy=slot&&(slot.title_ky||slot.title)||D.ky[direction].title;
 var hallValue=slot&&slot.hall||'';
-return `<div class="admin-schedule-entry"${optionalShift?' data-optional-shift="true"':''}>${shiftLabel?`<strong class="admin-schedule-shift-label">${shiftLabel}</strong>`:''}<label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}"${optionalShift?'':' required'} aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
+return `<div class="admin-schedule-entry"${shift?` data-shift="${shift}"`:''}${optionalShift?' data-optional-shift="true"':''}>${shiftLabel?`<strong class="admin-schedule-shift-label">${shiftLabel}</strong>`:''}<label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}"${optionalShift?'':' required'} aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
 }
 function updateAdminScheduleDay(day){
 var hasLessons=Array.from(day.querySelectorAll('.admin-schedule-entry')).some(function(entry){
@@ -203,21 +208,28 @@ function buildAdminScheduleEditor(direction,slots){
 var dayNames=T[lang].scheduleDays;
 var entries=dayNames.map(function(dayName,dayIndex){
 var daySlots=(slots||[]).filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
-var rows=daySlots.map(function(slot,slotIndex){var shift=direction==='wrestling'?slotIndex+1:0;return buildAdminScheduleEntry(direction,dayName,slot,shift)}).join('');
-if(direction==='wrestling'&&daySlots.length<2)rows+=buildAdminScheduleEntry(direction,dayName,null,2);
-return `<div class="admin-schedule-day" data-weekday="${dayIndex+1}"><div class="admin-schedule-day-heading"><h4>${escapeHtml(dayName)}</h4><span class="admin-schedule-day-state${daySlots.length?' has-lessons':''}">${daySlots.length?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons}</span></div><p class="admin-schedule-empty"${daySlots.length?' hidden':''}>${T[lang].adminScheduleEmptyDay}</p>${rows}<button class="btn ghost sm" type="button" data-add-schedule-slot>${T[lang].scheduleAddLesson}</button></div>`;
+var rows,hasLessons=daySlots.length>0;
+if(direction==='wrestling'){
+var shiftEntries=daySlots.map(function(slot,index){return {slot:slot,shift:wrestlingShift(slot,index)}}).sort(function(a,b){return a.shift-b.shift||scheduleSort(a.slot,b.slot)});
+[1,2].forEach(function(shift){if(!shiftEntries.some(function(entry){return entry.shift===shift}))shiftEntries.push({slot:null,shift:shift})});
+shiftEntries.sort(function(a,b){return a.shift-b.shift});
+rows=shiftEntries.map(function(entry){return buildAdminScheduleEntry(direction,dayName,entry.slot,entry.shift)}).join('');
+}else rows=daySlots.map(function(slot){return buildAdminScheduleEntry(direction,dayName,slot,0)}).join('');
+return `<div class="admin-schedule-day" data-weekday="${dayIndex+1}"><div class="admin-schedule-day-heading"><h4>${escapeHtml(dayName)}</h4><span class="admin-schedule-day-state${hasLessons?' has-lessons':''}">${hasLessons?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons}</span></div><p class="admin-schedule-empty"${hasLessons?' hidden':''}>${T[lang].adminScheduleEmptyDay}</p>${rows}${direction==='wrestling'?'':`<button class="btn ghost sm" type="button" data-add-schedule-slot>${T[lang].scheduleAddLesson}</button>`}</div>`;
 }).join('');
 return `<div class="admin-schedule-days" data-schedule-editor="${direction}">${entries}</div>`;
 }
 function renderScheduleTable(direction){
 var days=T[lang].scheduleDays,slots=scheduleSlots[direction]||[];
-return `<div class="week-schedule-grid">${days.map(function(day,dayIndex){
-var lessons=slots.filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
+var shiftPicker=direction==='wrestling'?`<div class="schedule-shift-picker" role="group" aria-label="${T[lang].scheduleChooseShift}"><span>${T[lang].scheduleChooseShift}</span><button class="btn ghost sm${selectedWrestlingShift===1?' is-selected':''}" type="button" data-wrestling-shift="1" aria-pressed="${selectedWrestlingShift===1}">${T[lang].scheduleShiftOne}</button><button class="btn ghost sm${selectedWrestlingShift===2?' is-selected':''}" type="button" data-wrestling-shift="2" aria-pressed="${selectedWrestlingShift===2}">${T[lang].scheduleShiftTwo}</button></div>`:'';
+return `${shiftPicker}<div class="week-schedule-grid">${days.map(function(day,dayIndex){
+var allLessons=slots.filter(function(slot){return slot.weekday===dayIndex+1;}).sort(scheduleSort);
+var lessons=direction==='wrestling'?allLessons.filter(function(slot,index){return wrestlingShift(slot,index)===selectedWrestlingShift}):allLessons;
 var sessions=lessons.length?lessons.map(function(slot){
 var title=lang==='ky'?(slot.title_ky||slot.title_ru||D[lang][direction].title):(slot.title_ru||slot.title_ky||D[lang][direction].title);
 return `<div class="week-class"><div class="week-class-info"><span class="week-class-title"><time datetime="${escapeHtml(formatScheduleTime(slot))}">${escapeHtml(formatScheduleTime(slot))}</time> — ${escapeHtml(title)}</span></div>${slot.hall?`<span class="week-class-hall">${escapeHtml(slot.hall)}</span>`:''}</div>`;
 }).join(''):`<p class="week-day-off">${T[lang].scheduleDayOff}</p>`;
-return `<article class="week-day-card ${lessons.length?'has-training':'no-training'}"><h3><span>${T[lang].scheduleDayShort[dayIndex]}</span><span class="week-day-full">${escapeHtml(day)}</span></h3><div class="week-day-classes">${sessions}</div></article>`;
+return `<article class="week-day-card ${lessons.length?'has-training':'no-training'}"><h3><span>${T[lang].scheduleDayShort[dayIndex]}</span><span class="week-day-full">${escapeHtml(day)}</span>${direction==='wrestling'?`<span class="week-day-shift">${selectedWrestlingShift===1?T[lang].scheduleShiftOne:T[lang].scheduleShiftTwo}</span>`:''}</h3><div class="week-day-classes">${sessions}</div></article>`;
 }).join('')}</div>`;
 }
 async function loadCloudData(){
@@ -370,7 +382,7 @@ if(!d)return;
 var schedule=renderScheduleTable(id);
 document.getElementById('direction-content').innerHTML=`<div class="direction-hero"><img class="direction-hero-image" src="${directionImages[id]}" alt="${d.title}"><h1>${d.title}</h1><p>${d.intro}</p></div><div class="grid direction-details"><article class="card"><h3>${d.learnTitle}</h3><ul>${d.learn.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.forTitle}</h3><ul>${d.forList.map(function(item){return '<li>'+item+'</li>'}).join('')}</ul></article><article class="card"><h3>${d.resultTitle}</h3><p>${d.result}</p></article></div><section class="direction-schedule"><h2>${T[lang].scheduleTitle}</h2>${schedule}</section>${d.prices?`<section class="direction-prices"><h2>${d.priceTitle}</h2><div class="grid">${d.prices.map(function(price,index){return `<a class="card direction-price-card" href="#contact" data-enroll="${id}" data-plan="${index}"><h3>${price[0]}</h3><p class="direction-price">${price[1]}</p><span class="direction-price-cta">${T[lang].priceCta}</span></a>`}).join('')}</div></section>`:''}<div class="btns"><a class="btn" href="#contact" data-enroll="${id}">${T[lang].cta1}</a><a class="btn ghost" href="#sports">${T[lang].nav4}</a></div>`;
 }
-var lang="ru",selectedPrice=null;
+var lang="ru",selectedPrice=null,selectedWrestlingShift=1;
 loadAdminData();
 function setLang(l){
 lang=l;var d=T[l];
@@ -486,6 +498,8 @@ var shiftTime=e.target.closest('[data-optional-shift] .schedule-slot-time');
 if(shiftTime)updateAdminScheduleDay(shiftTime.closest('.admin-schedule-day'));
 });
 document.addEventListener('click',function(e){
+var shiftButton=e.target.closest('[data-wrestling-shift]');
+if(shiftButton){selectedWrestlingShift=Number(shiftButton.getAttribute('data-wrestling-shift'));if(location.hash==='#wrestling')renderDirection('wrestling');return}
 var addSchedule=e.target.closest('[data-add-schedule-slot]');
 if(addSchedule){
 var addDay=addSchedule.closest('.admin-schedule-day'),weekday=Number(addDay.getAttribute('data-weekday'));
@@ -510,12 +524,13 @@ if(entry.getAttribute('data-optional-shift')==='true'&&!time&&titleRu===D.ru[dir
 var hour=Number(time.slice(0,2));
 if(!Number.isInteger(weekday)||weekday<1||weekday>7||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||hour<8||hour>22||!titleRu||!titleKy){invalid=true;return}
 var slot={weekday:weekday,time:time,title_ru:titleRu,title_ky:titleKy};
+if(direction==='wrestling')slot.shift=Number(entry.getAttribute('data-shift'));
 if(hall)slot.hall=hall;
 nextSlots.push(slot);
 });
 });
 if(invalid){setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleRequired,true);return}
-nextSlots.sort(function(a,b){return a.weekday-b.weekday||scheduleSort(a,b)});
+nextSlots.sort(function(a,b){return a.weekday-b.weekday||(direction==='wrestling'?a.shift-b.shift:0)||scheduleSort(a,b)});
 saveSchedule.disabled=true;
 setAdminStatus('schedule-status-'+direction,T[lang].adminScheduleSaving,false);
 supabaseClient.from('training_schedules').upsert({direction:direction,slots:nextSlots},{onConflict:'direction'}).then(function(result){
