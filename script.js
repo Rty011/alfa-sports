@@ -53,6 +53,7 @@ T.ru.adminScheduleHasLessons="Есть занятия";T.ky.adminScheduleHasLess
 T.ru.adminScheduleEmptyDay="В этот день пока нет занятий. Добавьте тренировку кнопкой ниже.";T.ky.adminScheduleEmptyDay="Бул күнү азырынча машыгуу жок. Төмөнкү баскыч менен машыгууну кошуңуз.";
 T.ru.adminScheduleShiftOne="1-я смена";T.ky.adminScheduleShiftOne="1-кезек";
 T.ru.adminScheduleShiftTwo="2-я смена";T.ky.adminScheduleShiftTwo="2-кезек";
+T.ru.adminScheduleAddShiftLesson="Добавить занятие в смену";T.ky.adminScheduleAddShiftLesson="Кезекке машыгуу кошуу";
 T.ru.adminScheduleRequired="Укажите корректные день, время и название тренировки на обоих языках.";T.ky.adminScheduleRequired="Күндү, убакытты жана машыгуунун аталышын эки тилде туура жазыңыз.";
 T.ru.adminScheduleLoadError="Не удалось загрузить расписание. Проверьте таблицу training_schedules в Supabase.";T.ky.adminScheduleLoadError="Машыгуу тартибин жүктөө мүмкүн болгон жок. Supabase'теги training_schedules таблицасын текшериңиз.";
 T.ru.adminScheduleSaving="Сохраняем расписание…";T.ky.adminScheduleSaving="Машыгуу тартиби сакталууда…";
@@ -187,18 +188,14 @@ return typeof slot.time==='string'?slot.time:formatScheduleHour(Number(slot.hour
 function scheduleSort(a,b){return formatScheduleTime(a).localeCompare(formatScheduleTime(b))}
 function wrestlingShift(slot,index){return slot.shift===1||slot.shift===2?slot.shift:index+1}
 function buildAdminScheduleEntry(direction,dayName,slot,shift){
-var optionalShift=Boolean(shift&&!slot);
-var shiftLabel=shift===1?T[lang].adminScheduleShiftOne:shift===2?T[lang].adminScheduleShiftTwo:'';
-var timeValue=slot?formatScheduleTime(slot):optionalShift?'':'16:00';
+var timeValue=slot?formatScheduleTime(slot):'16:00';
 var titleRu=slot&&(slot.title_ru||slot.title)||D.ru[direction].title;
 var titleKy=slot&&(slot.title_ky||slot.title)||D.ky[direction].title;
 var hallValue=slot&&slot.hall||'';
-return `<div class="admin-schedule-entry"${shift?` data-shift="${shift}"`:''}${optionalShift?' data-optional-shift="true"':''}>${shiftLabel?`<strong class="admin-schedule-shift-label">${shiftLabel}</strong>`:''}<label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}"${optionalShift?'':' required'} aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
+return `<div class="admin-schedule-entry"${shift?` data-shift="${shift}"`:''}><label><span>${T[lang].adminScheduleTime}</span><input class="schedule-slot-time" type="time" value="${escapeHtml(timeValue)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTime)}"></label><label><span>${T[lang].adminScheduleTitleRu}</span><input class="schedule-slot-title schedule-slot-title-ru" type="text" value="${escapeHtml(titleRu)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleRu)}"></label><label><span>${T[lang].adminScheduleTitleKy}</span><input class="schedule-slot-title schedule-slot-title-ky" type="text" value="${escapeHtml(titleKy)}" required aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleTitleKy)}"></label><label><span>${T[lang].adminScheduleHall}</span><input class="schedule-slot-hall" type="text" value="${escapeHtml(hallValue)}" aria-label="${escapeHtml(dayName+' — '+T[lang].adminScheduleHall)}"></label><button class="btn ghost sm" type="button" data-remove-schedule-slot aria-label="${escapeHtml(dayName+' — '+T[lang].scheduleRemove)}">${T[lang].scheduleRemove}</button></div>`;
 }
 function updateAdminScheduleDay(day){
-var hasLessons=Array.from(day.querySelectorAll('.admin-schedule-entry')).some(function(entry){
-return entry.getAttribute('data-optional-shift')!=='true'||Boolean(entry.querySelector('.schedule-slot-time').value);
-});
+var hasLessons=day.querySelectorAll('.admin-schedule-entry').length>0;
 var status=day.querySelector('.admin-schedule-day-state');
 var empty=day.querySelector('.admin-schedule-empty');
 if(status){status.textContent=hasLessons?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons;status.classList.toggle('has-lessons',hasLessons)}
@@ -211,9 +208,11 @@ var daySlots=(slots||[]).filter(function(slot){return slot.weekday===dayIndex+1;
 var rows,hasLessons=daySlots.length>0;
 if(direction==='wrestling'){
 var shiftEntries=daySlots.map(function(slot,index){return {slot:slot,shift:wrestlingShift(slot,index)}}).sort(function(a,b){return a.shift-b.shift||scheduleSort(a.slot,b.slot)});
-[1,2].forEach(function(shift){if(!shiftEntries.some(function(entry){return entry.shift===shift}))shiftEntries.push({slot:null,shift:shift})});
-shiftEntries.sort(function(a,b){return a.shift-b.shift});
-rows=shiftEntries.map(function(entry){return buildAdminScheduleEntry(direction,dayName,entry.slot,entry.shift)}).join('');
+rows=[1,2].map(function(shift){
+var shiftLabel=shift===1?T[lang].adminScheduleShiftOne:T[lang].adminScheduleShiftTwo;
+var shiftRows=shiftEntries.filter(function(entry){return entry.shift===shift}).map(function(entry){return buildAdminScheduleEntry(direction,dayName,entry.slot,shift)}).join('');
+return `<div class="admin-schedule-shift" data-shift-group="${shift}"><h5>${shiftLabel}</h5>${shiftRows}<button class="btn ghost sm" type="button" data-add-schedule-shift="${shift}">${T[lang].adminScheduleAddShiftLesson}</button></div>`;
+}).join('');
 }else rows=daySlots.map(function(slot){return buildAdminScheduleEntry(direction,dayName,slot,0)}).join('');
 return `<div class="admin-schedule-day" data-weekday="${dayIndex+1}"><div class="admin-schedule-day-heading"><h4>${escapeHtml(dayName)}</h4><span class="admin-schedule-day-state${hasLessons?' has-lessons':''}">${hasLessons?T[lang].adminScheduleHasLessons:T[lang].adminScheduleNoLessons}</span></div><p class="admin-schedule-empty"${hasLessons?' hidden':''}>${T[lang].adminScheduleEmptyDay}</p>${rows}${direction==='wrestling'?'':`<button class="btn ghost sm" type="button" data-add-schedule-slot>${T[lang].scheduleAddLesson}</button>`}</div>`;
 }).join('');
@@ -493,13 +492,17 @@ editingProductId=null;pendingProductImage='';renderAdmin();renderShop();setAdmin
 })().catch(function(error){console.error('Ошибка сохранения товара:',error);setAdminStatus('product-status',T[lang].cloudSaveError,true)});
 }
 });
-document.addEventListener('input',function(e){
-var shiftTime=e.target.closest('[data-optional-shift] .schedule-slot-time');
-if(shiftTime)updateAdminScheduleDay(shiftTime.closest('.admin-schedule-day'));
-});
 document.addEventListener('click',function(e){
 var shiftButton=e.target.closest('[data-wrestling-shift]');
 if(shiftButton){selectedWrestlingShift=Number(shiftButton.getAttribute('data-wrestling-shift'));if(location.hash==='#wrestling')renderDirection('wrestling');return}
+var addShiftSchedule=e.target.closest('[data-add-schedule-shift]');
+if(addShiftSchedule){
+var shiftGroup=addShiftSchedule.closest('.admin-schedule-shift'),addShiftDay=addShiftSchedule.closest('.admin-schedule-day');
+var weekday=Number(addShiftDay.getAttribute('data-weekday')),shift=Number(addShiftSchedule.getAttribute('data-add-schedule-shift'));
+addShiftSchedule.insertAdjacentHTML('beforebegin',buildAdminScheduleEntry('wrestling',T[lang].scheduleDays[weekday-1],null,shift));
+updateAdminScheduleDay(addShiftDay);
+return;
+}
 var addSchedule=e.target.closest('[data-add-schedule-slot]');
 if(addSchedule){
 var addDay=addSchedule.closest('.admin-schedule-day'),weekday=Number(addDay.getAttribute('data-weekday'));
@@ -520,11 +523,11 @@ var time=entry.querySelector('.schedule-slot-time').value;
 var titleRu=entry.querySelector('.schedule-slot-title-ru').value.trim();
 var titleKy=entry.querySelector('.schedule-slot-title-ky').value.trim();
 var hall=entry.querySelector('.schedule-slot-hall').value.trim();
-if(entry.getAttribute('data-optional-shift')==='true'&&!time&&titleRu===D.ru[direction].title&&titleKy===D.ky[direction].title&&!hall)return;
 var hour=Number(time.slice(0,2));
-if(!Number.isInteger(weekday)||weekday<1||weekday>7||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||hour<8||hour>22||!titleRu||!titleKy){invalid=true;return}
+var shift=direction==='wrestling'?Number(entry.getAttribute('data-shift')):0;
+if(!Number.isInteger(weekday)||weekday<1||weekday>7||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||hour<8||hour>22||!titleRu||!titleKy||(direction==='wrestling'&&shift!==1&&shift!==2)){invalid=true;return}
 var slot={weekday:weekday,time:time,title_ru:titleRu,title_ky:titleKy};
-if(direction==='wrestling')slot.shift=Number(entry.getAttribute('data-shift'));
+if(direction==='wrestling')slot.shift=shift;
 if(hall)slot.hall=hall;
 nextSlots.push(slot);
 });
